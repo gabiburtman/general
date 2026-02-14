@@ -545,5 +545,61 @@
       "benefits": "Reduces upper back tension and increases the capacity of the ribcage to expand, helping with third-trimester shortness of breath.",
       "similar_exercises": ["pelvic_tilt_quadruped", "yoga_ball_pelvic_circles", "standing_hip_shifts"]
     }
+  },
+  {
+    "id": "butterfly_pose_rocking",
+    "name": "Butterfly Pose (Rocking/Pulses)",
+    "category": "relaxation",
+    "specialist": false,
+    "replacement_group": "Group A: Pelvic Inlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "low"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 60,
+      "sets": 1,
+      "note": "Stay upright to maintain space for the baby."
+    },
+    "primary_source": {
+      "video_file": "1000087132.mp4",
+      "clip_start": "00:36",
+      "clip_end": "00:40"
+    },
+    "instructions": [
+      "Step 1: Sit on the floor with the soles of your feet touching and knees out to the sides.",
+      "Step 2: Pull your feet as close to your body as is comfortable for your belly.",
+      "Step 3: Hold your ankles or feet and sit up tall.",
+      "Step 4: Gently rock your torso side-to-side or pulse your knees up and down."
+    ],
+    "variations": [
+      {
+        "name": "Butterfly Pulses",
+        "video_ref": {
+          "file": "1000087120.mp4",
+          "start": "00:27",
+          "end": "00:31"
+        },
+        "instruction_note": "Gently bounce the knees up and down like butterfly wings to loosen the hip sockets."
+      },
+      {
+        "name": "Active Knee Press",
+        "video_ref": {
+          "file": "1000087103.mp4",
+          "start": "00:20",
+          "end": "00:25"
+        },
+        "instruction_note": "Use your hands or elbows to gently apply downward pressure on the knees for a deeper stretch."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "If sitting on the floor is uncomfortable, sit on a yoga block or a folded blanket to tilt the pelvis forward. Avoid leaning back too far.",
+      "contraindications": "Sharp inner thigh or groin pain."
+    },
+    "enrichment": {
+      "benefits": "Increases blood flow to the pelvic region and helps release the adductors, which can become tight as the body prepares for labor.",
+      "similar_exercises": ["frog_pose_rocking", "seated_straddle_rock", "single_leg_happy_baby"]
+    }
   }
 ]
