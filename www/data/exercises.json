@@ -858,5 +858,53 @@
       "benefits": "Builds the quad and glute strength necessary for standing labor positions and opens the inner thighs.",
       "similar_exercises": ["supported_deep_squat_shift", "kneeling_side_plank", "bird_dog_alternating"]
     }
+  },
+  {
+    "id": "hip_90_90_lift",
+    "name": "90/90 Hip Lift",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group B: Pelvic Outlet Openers",
+    "schedule": {
+      "frequency": "3x_week",
+      "priority": "low"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 2,
+      "note": "Perform 10 controlled lifts per side."
+    },
+    "primary_source": {
+      "video_file": "1000087136.mp4",
+      "clip_start": "00:17",
+      "clip_end": "00:24"
+    },
+    "instructions": [
+      "Step 1: Sit on the floor with your front leg at a 90-degree angle and your back leg at a 90-degree angle.",
+      "Step 2: Keep your spine tall and place your hands on your hips or the floor for balance.",
+      "Step 3: Drive through your front shin and back knee to lift your hips off the floor into a kneeling position.",
+      "Step 4: Slowly lower your hips back to the starting position with control.",
+      "Step 5: Switch leg orientation and repeat on the other side."
+    ],
+    "variations": [
+      {
+        "name": "90/90 Static Stretch",
+        "video_ref": {
+          "file": "1000087136.mp4",
+          "start": "00:17",
+          "end": "00:24"
+        },
+        "instruction_note": "Hold the seated 90/90 position without the lift to focus purely on the deep hip rotation."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "The belly may make the forward lean difficult; stay upright to maintain space. Use your hands on the floor to assist the lift if needed.",
+      "contraindications": "Sharp knee pain or sacroiliac (SI) joint instability."
+    },
+    "enrichment": {
+      "benefits": "Strengthens the gluteus medius and improves hip internal and external rotation, which is vital for pelvic mobility during birth.",
+      "similar_exercises": ["seated_internal_rotation", "quadruped_hip_shift", "seated_hip_wipers"]
+    }
   }
 ]
