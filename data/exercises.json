@@ -488,5 +488,62 @@
       "benefits": "Uses an uneven pelvic position to help 'untwist' uterine ligaments and encourage the baby into an optimal head-down position.",
       "similar_exercises": ["kneeling_psoas_stretch", "lizard_pose", "kneeling_lunge_ball_support"]
     }
+  },
+  {
+    "id": "thoracic_rotation_variations",
+    "name": "Thoracic Reach & Rotate",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 1,
+      "note": "Perform 10 reaches per side."
+    },
+    "primary_source": {
+      "video_file": "1000087136.mp4",
+      "clip_start": "00:12",
+      "clip_end": "00:16"
+    },
+    "instructions": [
+      "Step 1: Start on all fours.",
+      "Step 2: Place one hand behind your head or reach it toward the ceiling.",
+      "Step 3: Rotate your chest and elbow/hand toward the ceiling.",
+      "Step 4: Rotate back down, tucking the moving arm under your chest toward the opposite side.",
+      "Step 5: Follow your hand with your eyes to ensure the movement comes from the upper back."
+    ],
+    "variations": [
+      {
+        "name": "Kneeling Lunge Rotation",
+        "video_ref": {
+          "file": "1000087107.mp4",
+          "start": "00:04",
+          "end": "00:08"
+        },
+        "instruction_note": "Perform the rotation while in a kneeling lunge position to add a hip flexor stretch."
+      },
+      {
+        "name": "Low Lunge Thoracic Reach",
+        "video_ref": {
+          "file": "1000087099.mp4",
+          "start": "00:15",
+          "end": "00:23"
+        },
+        "instruction_note": "A dynamic version focused on reaching the arm high to maximize ribcage expansion."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Avoid over-twisting the lower back; keep the focus on the upper spine and shoulders. If you feel dizzy, perform the movement more slowly or switch to a seated version.",
+      "contraindications": "Sharp pain in the spine or ribs."
+    },
+    "enrichment": {
+      "benefits": "Reduces upper back tension and increases the capacity of the ribcage to expand, helping with third-trimester shortness of breath.",
+      "similar_exercises": ["pelvic_tilt_quadruped", "yoga_ball_pelvic_circles", "standing_hip_shifts"]
+    }
   }
 ]
