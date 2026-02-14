@@ -1653,5 +1653,53 @@
       "benefits": "Opens the inner thighs and pelvic inlet while calming the nervous system, which is crucial for the hormonal shifts required for labor.",
       "similar_exercises": ["butterfly_pose_rocking", "frog_pose_rocking", "single_leg_happy_baby"]
     }
+  },
+  {
+    "id": "childs_pose_variations",
+    "name": "Wide-Legged Child's Pose",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 60,
+      "sets": 2,
+      "note": "Rest here for 1–2 minutes per set."
+    },
+    "primary_source": {
+      "video_file": "1000087132.mp4",
+      "clip_start": "00:00",
+      "clip_end": "00:05"
+    },
+    "instructions": [
+      "Step 1: Kneel on a soft surface. Bring your big toes together and spread your knees wide apart to make plenty of room for your belly.",
+      "Step 2: Slowly lower your hips back toward your heels.",
+      "Step 3: Walk your hands forward and rest your forehead on the floor, a yoga block, or a pillow.",
+      "Step 4: Allow your chest and belly to hang heavy toward the floor.",
+      "Step 5: Send your breath deep into your lower back and imagine the space between your sit bones widening."
+    ],
+    "variations": [
+      {
+        "name": "Side-Stretch Child's Pose",
+        "video_ref": {
+          "file": "1000087132.mp4",
+          "start": "00:00",
+          "end": "00:05"
+        },
+        "instruction_note": "Walk both hands to the left side to stretch the right ribcage, then repeat on the other side."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "If sitting back on your heels is uncomfortable for your knees, place a rolled-up blanket behind your knee joints for padding.",
+      "contraindications": "Avoid if you have acute knee injuries or severe ankle pain."
+    },
+    "enrichment": {
+      "benefits": "Decompresses the spine and provides a gentle, passive stretch to the pelvic floor, which is essential for the second stage of labor.",
+      "similar_exercises": ["poppy_pose", "frog_pose_rocking", "pelvic_tilt_quadruped"]
+    }
   }
 ]
