@@ -383,5 +383,62 @@
       "benefits": "Builds leg strength, stretches the inner thighs, and prepares the pelvic floor for the pressure of delivery.",
       "similar_exercises": ["seated_internal_rotation", "seated_hip_wipers", "goddess_squat_variations"]
     }
+  },
+  {
+    "id": "bear_hover",
+    "name": "Bear Hover",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group E: Lateral Stability & Strength",
+    "schedule": {
+      "frequency": "3x_week",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 60,
+      "sets": 1,
+      "note": "Work up to holding for 60 seconds total."
+    },
+    "primary_source": {
+      "video_file": "1000087130.mp4",
+      "clip_start": "00:15",
+      "clip_end": "00:19"
+    },
+    "instructions": [
+      "Step 1: Start on all fours with toes tucked under.",
+      "Step 2: Take a big inhale to expand the belly.",
+      "Step 3: On the exhale, 'hug the baby' in and up towards your spine.",
+      "Step 4: Keeping that core engagement, lift your knees just 1 inch off the floor.",
+      "Step 5: Hold while maintaining a flat, table-top back."
+    ],
+    "variations": [
+      {
+        "name": "3-Second Pulse Lift",
+        "video_ref": {
+          "file": "1000087093.mp4",
+          "start": "00:34",
+          "end": "00:54"
+        },
+        "instruction_note": "Instead of a long hold, perform repeated 3-second lifts with a full breath between each."
+      },
+      {
+        "name": "Alternating Shoulder Tap",
+        "video_ref": {
+          "file": "1000087130.mp4",
+          "start": "00:15",
+          "end": "00:19"
+        },
+        "instruction_note": "While hovering, tap the opposite shoulder with your hand to increase stability challenge."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "This is an advanced move. Ensure you are 'hugging the baby' effectively to avoid straining the lower back.",
+      "contraindications": "Stop immediately if you see 'coning' (a ridge forming down the center of your abs) or feel excessive pelvic pressure."
+    },
+    "enrichment": {
+      "benefits": "Builds significant core and shoulder stability to help manage the weight of the third-trimester belly.",
+      "similar_exercises": ["bird_dog_alternating", "kneeling_side_plank", "kneeling_side_crunch"]
+    }
   }
 ]
