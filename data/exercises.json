@@ -308,5 +308,80 @@
       "benefits": "Creates space in the upper pelvis for the baby to drop down and engage.",
       "similar_exercises": ["poppy_pose", "childs_pose_variations", "polar_bear_stretch_ball"]
     }
+  },
+  {
+    "id": "supported_deep_squat_shift",
+    "name": "Deep Squat (Malasana)",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group B: Pelvic Outlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 3,
+      "note": "Hold the bottom position to maximize the stretch."
+    },
+    "primary_source": {
+      "video_file": "1000087124.mp4",
+      "clip_start": "00:58",
+      "clip_end": "01:27"
+    },
+    "instructions": [
+      "Step 1: Stand with feet slightly wider than hip-width apart, toes turned out.",
+      "Step 2: Lower your hips down toward the floor into a deep squat.",
+      "Step 3: Keep your heels on the floor and your chest lifted.",
+      "Step 4: Place your elbows inside your knees to gently press them open.",
+      "Step 5: Rock gently side-to-side to find ease in the hips."
+    ],
+    "variations": [
+      {
+        "name": "3-Minute Endurance Hold",
+        "video_ref": {
+          "file": "1000087126.mp4",
+          "start": "00:09",
+          "end": "00:11"
+        },
+        "instruction_note": "A static hold designed to build the mental and physical stamina needed for active labor."
+      },
+      {
+        "name": "Casual Shifting (Daily Life)",
+        "video_ref": {
+          "file": "1000087107.mp4",
+          "start": "00:12",
+          "end": "00:15"
+        },
+        "instruction_note": "Perform this weight shift casually throughout the day, such as while brushing your teeth."
+      },
+      {
+        "name": "Deep Squat to Hamstring Stretch",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:29",
+          "end": "00:34"
+        },
+        "instruction_note": "From the squat, lift your hips toward the ceiling while keeping hands low to stretch the hamstrings."
+      },
+      {
+        "name": "Low Squat Rocks",
+        "video_ref": {
+          "file": "1000087099.mp4",
+          "start": "00:24",
+          "end": "00:26"
+        },
+        "instruction_note": "Perform 10 rhythmic rocks in the deepest part of the squat to relax the pelvic floor."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "If your heels lift, place a rolled-up mat or towel under them. Use a yoga block for support if you have hemorrhoids or pelvic heaviness.",
+      "contraindications": "Avoid deep unsupported squats if you have a known history of cervical insufficiency."
+    },
+    "enrichment": {
+      "benefits": "Builds leg strength, stretches the inner thighs, and prepares the pelvic floor for the pressure of delivery.",
+      "similar_exercises": ["seated_internal_rotation", "seated_hip_wipers", "goddess_squat_variations"]
+    }
   }
 ]
