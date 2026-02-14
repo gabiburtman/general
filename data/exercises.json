@@ -1413,5 +1413,53 @@
       "benefits": "Specifically opens the pelvic inlet (the top) to help a baby who is high up or 'sunny-side up' find a better angle.",
       "similar_exercises": ["frog_pose_rocking", "childs_pose_variations", "polar_bear_stretch_ball"]
     }
+  },
+  {
+    "id": "polar_bear_stretch_ball",
+    "name": "Polar Bear (Ball Support)",
+    "category": "mobility",
+    "specialist": true,
+    "replacement_group": "Group A: Pelvic Inlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 180,
+      "sets": 1,
+      "note": "Stay for 3 minutes to allow deep relaxation of the uterine ligaments."
+    },
+    "primary_source": {
+      "video_file": "1000087122.mp4",
+      "clip_start": "00:04",
+      "clip_end": "00:10"
+    },
+    "instructions": [
+      "Step 1: Kneel on a soft surface with a large exercise ball in front of you.",
+      "Step 2: Drape your chest and arms over the ball, keeping your hips high and knees wide.",
+      "Step 3: Rest your head on your arms or the ball.",
+      "Step 4: Gently rock the ball side-to-side or forward-and-back to shift the pelvis.",
+      "Step 5: Breathe deeply into your belly, letting it hang completely."
+    ],
+    "variations": [
+      {
+        "name": "Static Polar Bear",
+        "video_ref": {
+          "file": "1000087122.mp4",
+          "start": "00:04",
+          "end": "00:10"
+        },
+        "instruction_note": "A stillness-focused version used for deep relaxation before bed."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "If you experience heartburn, use more pillows or a larger ball to keep your head slightly higher than your stomach.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Uses gravity and gentle motion to help the baby move out of the pelvis just enough to rotate into the optimal head-down, front-facing position.",
+      "similar_exercises": ["poppy_pose", "frog_pose_rocking", "childs_pose_variations"]
+    }
   }
 ]
