@@ -1749,5 +1749,53 @@
       "benefits": "Reduces rib pain (common in late pregnancy) and improves breathing capacity by stretching the intercostal muscles.",
       "similar_exercises": ["thoracic_rotation_variations", "kneeling_side_crunch", "yoga_ball_pelvic_circles"]
     }
+  },
+  {
+    "id": "wall_glute_bridge",
+    "name": "Wall Glute Bridge",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group E: Lateral Stability & Strength",
+    "schedule": {
+      "frequency": "3x_week",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 12,
+      "sets": 2,
+      "note": "Keep the movement small and controlled."
+    },
+    "primary_source": {
+      "video_file": "1000087093.mp4",
+      "clip_start": "00:00",
+      "clip_end": "00:05"
+    },
+    "instructions": [
+      "Step 1: Lie on your back with your feet flat against a wall, knees bent at roughly 90 degrees.",
+      "Step 2: Place your arms at your sides for support.",
+      "Step 3: Exhale, 'hug the baby' toward your spine, and squeeze your glutes to lift your hips off the floor.",
+      "Step 4: Only lift high enough to create a straight line from your knees to your shoulders; do not arch into your lower back.",
+      "Step 5: Inhale as you slowly lower your hips back to the mat."
+    ],
+    "variations": [
+      {
+        "name": "Incline Wall Bridge",
+        "video_ref": {
+          "file": "1000087093.mp4",
+          "start": "00:00",
+          "end": "00:05"
+        },
+        "instruction_note": "If lying flat causes dizziness, use a wedge pillow to elevate your upper body while keeping your feet on the wall."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Limit time on your back to the duration of the set. If you feel any tingling or shortness of breath, roll to your side immediately.",
+      "contraindications": "Avoid if you have severe Diastasis Recti or sharp SI joint pain."
+    },
+    "enrichment": {
+      "benefits": "Builds the posterior strength needed for pushing and provides a gentle counter-stretch to tight hip flexors.",
+      "similar_exercises": ["bird_dog_alternating", "single_leg_box_squat", "kneeling_side_plank"]
+    }
   }
 ]
