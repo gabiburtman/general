@@ -906,5 +906,62 @@
       "benefits": "Strengthens the gluteus medius and improves hip internal and external rotation, which is vital for pelvic mobility during birth.",
       "similar_exercises": ["seated_internal_rotation", "quadruped_hip_shift", "seated_hip_wipers"]
     }
+  },
+  {
+    "id": "kneeling_psoas_stretch",
+    "name": "Kneeling Psoas Stretch",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group C: Pelvic Asymmetry Fixers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 45,
+      "sets": 1,
+      "note": "Hold for 45 seconds per side."
+    },
+    "primary_source": {
+      "video_file": "1000087134.mp4",
+      "clip_start": "00:20",
+      "clip_end": "00:29"
+    },
+    "instructions": [
+      "Step 1: Start in a kneeling position with one foot forward and the back knee on a padded surface.",
+      "Step 2: Gently tuck your tailbone under (posterior pelvic tilt) to engage the stretch.",
+      "Step 3: Lean forward slightly until you feel a stretch in the front of your back hip.",
+      "Step 4: Keep your chest lifted and avoid arching your lower back.",
+      "Step 5: Reach the arm on the stretching side up toward the ceiling for a deeper release."
+    ],
+    "variations": [
+      {
+        "name": "Dynamic Hip Rocking",
+        "video_ref": {
+          "file": "1000087103.mp4",
+          "start": "00:13",
+          "end": "00:19"
+        },
+        "instruction_note": "Slowly rock in and out of the stretch to help the pelvic ligaments adjust."
+      },
+      {
+        "name": "Psoas with Side Lean",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:05",
+          "end": "00:06"
+        },
+        "instruction_note": "Lean your torso toward the front-leg side while reaching up to lengthen the entire side-body."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Use a wall or chair for balance as your center of gravity shifts. Ensure the back knee is well-padded.",
+      "contraindications": "Sharp pain in the groin or sacroiliac (SI) joint."
+    },
+    "enrichment": {
+      "benefits": "Releases tension in the psoas and iliacus, allowing the pelvis to tilt properly for baby's engagement.",
+      "similar_exercises": ["asymmetric_rock_back", "lizard_pose", "kneeling_lunge_ball_support"]
+    }
   }
 ]
