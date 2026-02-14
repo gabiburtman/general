@@ -1701,5 +1701,53 @@
       "benefits": "Decompresses the spine and provides a gentle, passive stretch to the pelvic floor, which is essential for the second stage of labor.",
       "similar_exercises": ["poppy_pose", "frog_pose_rocking", "pelvic_tilt_quadruped"]
     }
+  },
+  {
+    "id": "standing_thoracic_reach",
+    "name": "Standing Thoracic Reach",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 2,
+      "note": "Perform 5 slow reaches per side."
+    },
+    "primary_source": {
+      "video_file": "1000087134.mp4",
+      "clip_start": "00:09",
+      "clip_end": "00:15"
+    },
+    "instructions": [
+      "Step 1: Stand with your feet wider than hip-width and a soft bend in your knees.",
+      "Step 2: Inhale deeply and reach your right arm straight up toward the ceiling.",
+      "Step 3: Reach slightly over to the left, feeling the space between your right ribs expand.",
+      "Step 4: Keep your feet grounded and avoid twisting your hips; the movement should be in the upper body.",
+      "Step 5: Exhale as you bring the arm back down and repeat on the other side."
+    ],
+    "variations": [
+      {
+        "name": "Wall-Supported Thoracic Reach",
+        "video_ref": {
+          "file": "1000087134.mp4",
+          "start": "00:09",
+          "end": "00:15"
+        },
+        "instruction_note": "Stand sideways next to a wall and use the wall for balance while reaching the outside arm over."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Avoid over-arching your lower back while reaching. Focus on lifting 'up' out of the waist rather than just 'over'.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Reduces rib pain (common in late pregnancy) and improves breathing capacity by stretching the intercostal muscles.",
+      "similar_exercises": ["thoracic_rotation_variations", "kneeling_side_crunch", "yoga_ball_pelvic_circles"]
+    }
   }
 ]
