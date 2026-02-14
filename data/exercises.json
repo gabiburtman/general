@@ -1221,5 +1221,53 @@
       "benefits": "Improves lateral core strength and hip stability, which can help alleviate common third-trimester side-body and hip pain.",
       "similar_exercises": ["kneeling_side_plank", "bear_hover", "bird_dog_alternating"]
     }
+  },
+  {
+    "id": "seated_hip_wipers",
+    "name": "Seated Hip Wipers",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group B: Pelvic Outlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 20,
+      "sets": 1,
+      "note": "10 slow repetitions per side."
+    },
+    "primary_source": {
+      "video_file": "1000087091.mp4",
+      "clip_start": "00:56",
+      "clip_end": "01:00"
+    },
+    "instructions": [
+      "Step 1: Sit on the floor with your knees bent and feet flat, wider than hip-width.",
+      "Step 2: Place your hands behind you for support and lean back slightly.",
+      "Step 3: Slowly drop both knees to the left toward the floor.",
+      "Step 4: Bring them back to center and then drop both knees to the right.",
+      "Step 5: Keep your sit bones relatively grounded to maximize the internal rotation of the hip."
+    ],
+    "variations": [
+      {
+        "name": "90/90 Flow",
+        "video_ref": {
+          "file": "1000087136.mp4",
+          "start": "00:17",
+          "end": "00:24"
+        },
+        "instruction_note": "Transition directly into a 90/90 position at the end of the 'wipe' for a deeper stretch."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "If the belly feels in the way, lean back further on your hands or widen your stance. Only go as far as your comfortable range of motion allows.",
+      "contraindications": "Sharp knee pain or sacroiliac (SI) joint discomfort."
+    },
+    "enrichment": {
+      "benefits": "Improves the mobility of the hip capsule and creates functional space in the lower pelvis for the baby to descend.",
+      "similar_exercises": ["seated_internal_rotation", "quadruped_hip_shift", "hip_90_90_lift"]
+    }
   }
 ]
