@@ -1509,5 +1509,53 @@
       "benefits": "Builds the leg endurance needed for active birth positions and stabilizes the pelvis.",
       "similar_exercises": ["goddess_squat_variations", "supported_deep_squat_shift"]
     }
+  },
+  {
+    "id": "figure_8_sway_ball",
+    "name": "Figure-8 Sway",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 15,
+      "sets": 1,
+      "note": "Complete 15 full '8' patterns."
+    },
+    "primary_source": {
+      "video_file": "1000087134.mp4",
+      "clip_start": "00:39",
+      "clip_end": "00:44"
+    },
+    "instructions": [
+      "Step 1: Sit on the birthing ball with feet wide and flat for a stable base.",
+      "Step 2: Imagine drawing an '8' or an infinity symbol with your tailbone on the ball.",
+      "Step 3: Move your hips diagonally forward to the left, then loop around and move diagonally forward to the right.",
+      "Step 4: Keep your shoulders relaxed and your chest open.",
+      "Step 5: Let the movement be fluid and hypnotic—great for labor prep."
+    ],
+    "variations": [
+      {
+        "name": "Side-to-Side Sway",
+        "video_ref": {
+          "file": "1000087134.mp4",
+          "start": "00:39",
+          "end": "00:44"
+        },
+        "instruction_note": "A simpler lateral movement if the figure-8 feels too complex."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Maintain your balance by keeping your gaze forward rather than down at your hips.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Deeply loosens the sacroiliac (SI) joints and encourages the baby to descend and rotate through the middle of the birth canal.",
+      "similar_exercises": ["yoga_ball_pelvic_circles", "pelvic_clock_quadruped", "standing_hip_shifts"]
+    }
   }
 ]
