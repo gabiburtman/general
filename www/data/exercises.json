@@ -72,5 +72,62 @@
       "benefits": "Helps baby move into the optimal position (LOA) and relieves back pressure.",
       "similar_exercises": ["pelvic_clock_quadruped", "yoga_ball_pelvic_circles"]
     }
+  },
+  {
+    "id": "forward_leaning_inversion",
+    "name": "Forward-Leaning Inversion",
+    "category": "positioning",
+    "specialist": true,
+    "replacement_group": null,
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 30,
+      "sets": 1,
+      "note": "Hold for exactly 30 seconds."
+    },
+    "primary_source": {
+      "video_file": "1000087134.mp4",
+      "clip_start": "00:00",
+      "clip_end": "00:08"
+    },
+    "instructions": [
+      "Step 1: Kneel on the edge of a couch or stable chair.",
+      "Step 2: Carefully lower your hands to the floor one at a time, then lower onto your forearms.",
+      "Step 3: Let your head hang freely, tucking your chin slightly to create space in the neck.",
+      "Step 4: Keep your knees on the edge of the couch and hips high.",
+      "Step 5: To come out, crawl your hands back up to a kneeling position slowly."
+    ],
+    "variations": [
+      {
+        "name": "Doula Optimization Protocol",
+        "video_ref": {
+          "file": "1000087107.mp4",
+          "start": "00:15",
+          "end": "00:18"
+        },
+        "instruction_note": "Immediately follow the inversion with a period of rest or a gentle walk to help the baby settle into the newly created space."
+      },
+      {
+        "name": "3rd Trimester Low-Impact Version",
+        "video_ref": {
+          "file": "1000087085.mp4",
+          "start": "00:24",
+          "end": "00:26"
+        },
+        "instruction_note": "A slightly modified angle for very late pregnancy comfort."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Always have someone nearby for balance if you feel unsteady. Come up very slowly to prevent a head rush.",
+      "contraindications": "High blood pressure, history of stroke, glaucoma, or if baby is already in a perfect position and you are in active labor."
+    },
+    "enrichment": {
+      "benefits": "Uses gravity to stretch the uterosacral ligaments, giving the baby more room to rotate into the optimal head-down position.",
+      "similar_exercises": []
+    }
   }
 ]
