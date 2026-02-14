@@ -234,5 +234,79 @@
       "benefits": "Increases the space in the lower pelvis (outlet), which is critical for the baby's exit during delivery.",
       "similar_exercises": ["quadruped_hip_shift", "seated_hip_wipers", "deep_squat_rotations"]
     }
+  },
+  {
+    "id": "frog_pose_rocking",
+    "name": "Frog Pose Rocking",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group A: Pelvic Inlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 120,
+      "sets": 1,
+      "note": "Move rhythmically to help baby descend."
+    },
+    "primary_source": {
+      "video_file": "1000087132.mp4",
+      "clip_start": "00:11",
+      "clip_end": "00:15"
+    },
+    "instructions": [
+      "Step 1: Start on all fours and widen your knees as far as comfortable.",
+      "Step 2: Turn your toes outward so your inner feet are flat on the floor.",
+      "Step 3: Keep your forearms or hands on the floor for support.",
+      "Step 4: Slowly rock your hips back toward your heels and then forward again."
+    ],
+    "variations": [
+      {
+        "name": "Skeletal View Alignment",
+        "video_ref": {
+          "file": "1000087103.mp4",
+          "start": "00:05",
+          "end": "00:08"
+        },
+        "instruction_note": "Focus on the backward rock to specifically open the sit bones."
+      },
+      {
+        "name": "Deep Hip Opening Hold",
+        "video_ref": {
+          "file": "1000087097.mp4",
+          "start": "00:03",
+          "end": "00:07"
+        },
+        "instruction_note": "A static version for deeper release of the pelvic floor."
+      },
+      {
+        "name": "Quick Prep Variation",
+        "video_ref": {
+          "file": "1000087120.mp4",
+          "start": "00:11",
+          "end": "00:14"
+        },
+        "instruction_note": "Perform 8 rhythmic rocks as part of a high-efficiency circuit."
+      },
+      {
+        "name": "Frogger Stretch",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:44",
+          "end": "00:50"
+        },
+        "instruction_note": "Really focus on opening the hips wide to the sides."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Use a blanket under your knees if the floor is too hard. Skip or narrow your knees if you feel sharp pain in the pubic bone (SPD).",
+      "contraindications": "Severe Symphysis Pubis Dysfunction (SPD)."
+    },
+    "enrichment": {
+      "benefits": "Creates space in the upper pelvis for the baby to drop down and engage.",
+      "similar_exercises": ["poppy_pose", "childs_pose_variations", "polar_bear_stretch_ball"]
+    }
   }
 ]
