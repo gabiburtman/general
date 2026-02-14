@@ -1317,5 +1317,53 @@
       "benefits": "Provides a deep, asymmetrical stretch to the pelvic floor and helps loosen the adductors, creating a 'path of least resistance' for the baby.",
       "similar_exercises": ["butterfly_pose_rocking", "frog_pose_rocking", "side_knee_to_chest"]
     }
+  },
+  {
+    "id": "yoga_ball_pelvic_circles",
+    "name": "Yoga Ball Pelvic Circles",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 20,
+      "sets": 1,
+      "note": "Perform 20 slow circles in each direction."
+    },
+    "primary_source": {
+      "video_file": "1000087134.mp4",
+      "clip_start": "00:39",
+      "clip_end": "00:44"
+    },
+    "instructions": [
+      "Step 1: Sit centered on a properly inflated birthing ball with feet flat and wide for stability.",
+      "Step 2: Rest your hands on your knees or hips.",
+      "Step 3: Move your pelvis in a slow, circular motion as if you are drawing a circle with your tailbone.",
+      "Step 4: Keep your upper body relatively still, letting the movement come from the hips and lower back.",
+      "Step 5: Focus on making the circles smooth and hitting all edges of the ball's surface."
+    ],
+    "variations": [
+      {
+        "name": "Figure-8 Sway",
+        "video_ref": {
+          "file": "1000087134.mp4",
+          "start": "00:39",
+          "end": "00:44"
+        },
+        "instruction_note": "Instead of circles, move your hips in a horizontal figure-8 pattern to further mobilize the SI joints."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Ensure the ball is the correct size (your knees should be slightly lower than your hips). Wear grippy socks or be on a non-slip mat.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Reduces lower back pressure and uses the 'pelvic rocking' motion to encourage the baby into an anterior (front-facing) position.",
+      "similar_exercises": ["pelvic_clock_quadruped", "pelvic_tilt_quadruped", "standing_hip_shifts"]
+    }
   }
 ]
