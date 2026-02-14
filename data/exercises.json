@@ -1269,5 +1269,53 @@
       "benefits": "Improves the mobility of the hip capsule and creates functional space in the lower pelvis for the baby to descend.",
       "similar_exercises": ["seated_internal_rotation", "quadruped_hip_shift", "hip_90_90_lift"]
     }
+  },
+  {
+    "id": "single_leg_happy_baby",
+    "name": "Single-Leg Happy Baby",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group A: Pelvic Inlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 45,
+      "sets": 1,
+      "note": "Hold for 45 seconds per side."
+    },
+    "primary_source": {
+      "video_file": "1000087097.mp4",
+      "clip_start": "00:03",
+      "clip_end": "00:07"
+    },
+    "instructions": [
+      "Step 1: Lie on your back (use a wedge or pillows to stay slightly upright if lying flat is uncomfortable).",
+      "Step 2: Bend one knee toward your chest and then out toward your armpit.",
+      "Step 3: Reach for your shin, ankle, or the outer edge of your foot with your hand.",
+      "Step 4: Keep the other leg relaxed, either flat on the floor or with the foot planted and knee bent.",
+      "Step 5: Gently pull the knee toward the floor while keeping the sole of the foot facing the ceiling."
+    ],
+    "variations": [
+      {
+        "name": "Side-Lying Happy Baby",
+        "video_ref": {
+          "file": "1000087099.mp4",
+          "start": "00:27",
+          "end": "00:30"
+        },
+        "instruction_note": "If lying on your back is not an option, perform this while lying on your side, pulling the top knee toward your shoulder."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Avoid holding this pose for long periods on your back to prevent compression of the vena cava; 45 seconds is generally safe for most, but listen to your body.",
+      "contraindications": "Dizziness or shortness of breath when lying on your back."
+    },
+    "enrichment": {
+      "benefits": "Provides a deep, asymmetrical stretch to the pelvic floor and helps loosen the adductors, creating a 'path of least resistance' for the baby.",
+      "similar_exercises": ["butterfly_pose_rocking", "frog_pose_rocking", "side_knee_to_chest"]
+    }
   }
 ]
