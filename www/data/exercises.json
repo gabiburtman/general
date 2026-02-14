@@ -1125,5 +1125,53 @@
       "benefits": "Loosens the soft tissues around the hips and encourages the baby to find an optimal position by providing gentle movement.",
       "similar_exercises": ["pelvic_tilt_quadruped", "pelvic_clock_quadruped", "yoga_ball_pelvic_circles"]
     }
+  },
+  {
+    "id": "bird_dog_alternating",
+    "name": "Bird Dog",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group E: Lateral Stability & Strength",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 12,
+      "sets": 3,
+      "note": "Perform 12 reps per side."
+    },
+    "primary_source": {
+      "video_file": "1000087130.mp4",
+      "clip_start": "00:04",
+      "clip_end": "00:07"
+    },
+    "instructions": [
+      "Step 1: Start on hands and knees with a flat back and core engaged.",
+      "Step 2: On an exhale, 'hug the baby' and simultaneously extend the opposite arm and opposite leg.",
+      "Step 3: Keep your hips level to the floor; do not let the lifting hip rotate upward.",
+      "Step 4: Hold for a second at the top, then slowly lower back to the starting position.",
+      "Step 5: Alternate sides or complete all reps on one side before switching."
+    ],
+    "variations": [
+      {
+        "name": "Static Core Hold",
+        "video_ref": {
+          "file": "1000087130.mp4",
+          "start": "00:04",
+          "end": "00:07"
+        },
+        "instruction_note": "Hold the extended position for 5-10 seconds to increase the stability challenge."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Do not lift the leg higher than hip height to avoid arching the lower back. Focus on length rather than height.",
+      "contraindications": "Stop if you feel sharp lower back pain or notice abdominal coning."
+    },
+    "enrichment": {
+      "benefits": "Improves balance and counteracts the forward pull of the belly by strengthening the back extensors.",
+      "similar_exercises": ["bear_hover", "kneeling_side_plank", "kneeling_side_crunch"]
+    }
   }
 ]
