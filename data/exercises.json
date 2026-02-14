@@ -793,5 +793,70 @@
       "benefits": "Strengthens the lateral core muscles, which helps manage the shifting center of gravity and reduces back pain.",
       "similar_exercises": ["kneeling_side_crunch", "bear_hover", "bird_dog_alternating"]
     }
+  },
+  {
+    "id": "goddess_squat_variations",
+    "name": "Goddess (Sumo) Squat",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group E: Lateral Stability & Strength",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 12,
+      "sets": 3,
+      "note": "Focus on keeping the spine vertical to allow space for the belly."
+    },
+    "primary_source": {
+      "video_file": "1000087124.mp4",
+      "clip_start": "00:17",
+      "clip_end": "00:46"
+    },
+    "instructions": [
+      "Step 1: Stand with your feet wide, heels in and toes pointed out.",
+      "Step 2: Lower your hips down, ensuring your knees stay tracked over your toes and don't collapse inward.",
+      "Step 3: Keep your chest lifted and shoulders stacked over your hips.",
+      "Step 4: Press through your heels to return to a standing position."
+    ],
+    "variations": [
+      {
+        "name": "Dynamic Goddess Pulses",
+        "video_ref": {
+          "file": "1000087101.mp4",
+          "start": "00:11",
+          "end": "00:29"
+        },
+        "instruction_note": "Perform small, rhythmic pulses at the bottom of the squat to build endurance and simulate labor rhythms."
+      },
+      {
+        "name": "Goddess with Side Stretch",
+        "video_ref": {
+          "file": "1000087134.mp4",
+          "start": "00:09",
+          "end": "00:15"
+        },
+        "instruction_note": "Hold the squat and reach one arm overhead at a time to expand the ribcage and side body."
+      },
+      {
+        "name": "Uneven (Block) Squat",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:51",
+          "end": "00:55"
+        },
+        "instruction_note": "Place one foot on a block while squatting to shift the pelvis and address asymmetry."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Do not go deeper than your current mobility allows; your center of gravity is shifting. Use a wall or chair for balance if you feel unsteady.",
+      "contraindications": "Stop if you feel sharp pelvic pressure or pulling in the pubic symphysis."
+    },
+    "enrichment": {
+      "benefits": "Builds the quad and glute strength necessary for standing labor positions and opens the inner thighs.",
+      "similar_exercises": ["supported_deep_squat_shift", "kneeling_side_plank", "bird_dog_alternating"]
+    }
   }
 ]
