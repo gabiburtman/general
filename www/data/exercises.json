@@ -129,5 +129,53 @@
       "benefits": "Uses gravity to stretch the uterosacral ligaments, giving the baby more room to rotate into the optimal head-down position.",
       "similar_exercises": []
     }
+  },
+  {
+    "id": "hug_the_baby_breathing",
+    "name": "Hug the Baby (Pregnant Cat)",
+    "category": "strength",
+    "specialist": true,
+    "replacement_group": null,
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 1,
+      "note": "Focus on the quality of the contraction rather than speed."
+    },
+    "primary_source": {
+      "video_file": "1000087093.mp4",
+      "clip_start": "00:09",
+      "clip_end": "00:33"
+    },
+    "instructions": [
+      "Step 1: Start on hands and knees with a neutral, flat spine.",
+      "Step 2: On the inhale, allow your stomach to expand fully toward the floor.",
+      "Step 3: On the exhale, blow all the air out and 'hug' your baby in and up toward your spine.",
+      "Step 4: Maintain a flat back; do not round your shoulders or tuck your tailbone.",
+      "Step 5: Feel the engagement of your deep transverse abdominis and your pelvic floor."
+    ],
+    "variations": [
+      {
+        "name": "Deep Belly Breathes",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:15",
+          "end": "00:19"
+        },
+        "instruction_note": "Focus specifically on the diaphragmatic expansion to relax the pelvic floor on the inhale."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Ensure you are not holding your breath. The engagement happens on the active exhale.",
+      "contraindications": "Stop if you notice 'coning' or 'doming' along the center of your abdomen."
+    },
+    "enrichment": {
+      "benefits": "Strengthens the transverse abdominis to support the weight of the belly and stabilize the spine.",
+      "similar_exercises": []
+    }
   }
 ]
