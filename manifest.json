@@ -1,0 +1,17 @@
+{
+  "name": "3rd Tri Exercises",
+  "short_name": "3rdTri",
+  "description": "Third trimester exercise tracker & scheduler",
+  "start_url": "/general/",
+  "display": "standalone",
+  "background_color": "#faf5f0",
+  "theme_color": "#c77dba",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🤰</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
