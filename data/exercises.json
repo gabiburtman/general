@@ -1461,5 +1461,53 @@
       "benefits": "Uses gravity and gentle motion to help the baby move out of the pelvis just enough to rotate into the optimal head-down, front-facing position.",
       "similar_exercises": ["poppy_pose", "frog_pose_rocking", "childs_pose_variations"]
     }
+  },
+  {
+    "id": "single_leg_box_squat",
+    "name": "Single-Leg Box Squat",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group E: Lateral Stability & Strength",
+    "schedule": {
+      "frequency": "3x_week",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 2,
+      "note": "Focus on a slow descent and a powerful upward press."
+    },
+    "primary_source": {
+      "video_file": "1000087130.mp4",
+      "clip_start": "00:00",
+      "clip_end": "00:03"
+    },
+    "instructions": [
+      "Step 1: Stand in front of a stable chair or bench.",
+      "Step 2: Extend one leg slightly forward, keeping most of your weight on the standing leg.",
+      "Step 3: Inhale and slowly lower your hips toward the chair while keeping your chest lifted.",
+      "Step 4: Once your glutes tap the chair, exhale, 'hug the baby,' and press through your heel to stand up.",
+      "Step 5: Complete the set on one side before switching."
+    ],
+    "variations": [
+      {
+        "name": "Supported Box Squat",
+        "video_ref": {
+          "file": "1000087130.mp4",
+          "start": "00:00",
+          "end": "00:03"
+        },
+        "instruction_note": "Hold onto a wall or a stable counter if you feel unsteady during the descent."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Avoid locking your knees at the top of the movement. Ensure your chair is against a wall so it cannot slide.",
+      "contraindications": "Sharp knee pain or severe pelvic girdle pain (PGP)."
+    },
+    "enrichment": {
+      "benefits": "Builds the leg endurance needed for active birth positions and stabilizes the pelvis.",
+      "similar_exercises": ["goddess_squat_variations", "supported_deep_squat_shift"]
+    }
   }
 ]
