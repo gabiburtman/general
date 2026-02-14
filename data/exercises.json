@@ -1365,5 +1365,53 @@
       "benefits": "Reduces lower back pressure and uses the 'pelvic rocking' motion to encourage the baby into an anterior (front-facing) position.",
       "similar_exercises": ["pelvic_clock_quadruped", "pelvic_tilt_quadruped", "standing_hip_shifts"]
     }
+  },
+  {
+    "id": "poppy_pose",
+    "name": "Poppy Pose",
+    "category": "mobility",
+    "specialist": true,
+    "replacement_group": "Group A: Pelvic Inlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 120,
+      "sets": 1,
+      "note": "Stay here for 2 minutes to let gravity do the work."
+    },
+    "primary_source": {
+      "video_file": "1000087132.mp4",
+      "clip_start": "00:00",
+      "clip_end": "00:05"
+    },
+    "instructions": [
+      "Step 1: Start on all fours.",
+      "Step 2: Keep your hips stacked directly over your knees (do not sit back on your heels).",
+      "Step 3: Walk your hands forward until your forehead or chest rests on the floor or a pillow.",
+      "Step 4: Keep your 'bum' high in the air to create an incline for the baby.",
+      "Step 5: Breathe deeply into your belly, allowing it to hang heavy."
+    ],
+    "variations": [
+      {
+        "name": "Chest-Supported Poppy",
+        "video_ref": {
+          "file": "1000087132.mp4",
+          "start": "00:00",
+          "end": "00:05"
+        },
+        "instruction_note": "Place a stack of pillows under your chest if you have shoulder tightness or acid reflux."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "If you feel lightheaded, come out of the pose slowly. Ensure your knees are wide enough to accommodate your belly.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Specifically opens the pelvic inlet (the top) to help a baby who is high up or 'sunny-side up' find a better angle.",
+      "similar_exercises": ["frog_pose_rocking", "childs_pose_variations", "polar_bear_stretch_ball"]
+    }
   }
 ]
