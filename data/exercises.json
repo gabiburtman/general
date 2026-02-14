@@ -1557,5 +1557,53 @@
       "benefits": "Deeply loosens the sacroiliac (SI) joints and encourages the baby to descend and rotate through the middle of the birth canal.",
       "similar_exercises": ["yoga_ball_pelvic_circles", "pelvic_clock_quadruped", "standing_hip_shifts"]
     }
+  },
+  {
+    "id": "side_lying_release",
+    "name": "Side-Lying Release",
+    "category": "mobility",
+    "specialist": true,
+    "replacement_group": "Group C: Pelvic Asymmetry Fixers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 120,
+      "sets": 1,
+      "note": "Hold for 2–3 minutes per side for maximum ligament release."
+    },
+    "primary_source": {
+      "video_file": "1000087099.mp4",
+      "clip_start": "00:27",
+      "clip_end": "00:30"
+    },
+    "instructions": [
+      "Step 1: Lie on the very edge of a bed, couch, or stable table.",
+      "Step 2: Keep your bottom leg completely straight and aligned with your torso.",
+      "Step 3: Allow your top leg to hang off the edge of the surface. Important: the hip should be slightly forward, not stacked directly on top.",
+      "Step 4: Your partner (if available) can stand in front of you to ensure you don't roll off, but the leg must hang freely.",
+      "Step 5: Breathe and stay still. You should feel a deep, heavy sensation in the pelvis as the muscles release."
+    ],
+    "variations": [
+      {
+        "name": "Side-Lying Release (Solo)",
+        "video_ref": {
+          "file": "1000087099.mp4",
+          "start": "00:27",
+          "end": "00:30"
+        },
+        "instruction_note": "If no partner is present, hold onto the edge of the bed or a sturdy piece of furniture to stay secure while the leg hangs."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Stop if you feel any sharp pulling in the groin or extreme lightheadedness from lying on your side.",
+      "contraindications": "Avoid if you have severe Pelvic Girdle Pain (PGP) that makes the weight of the hanging leg feel like it is 'separating' the pubic bone."
+    },
+    "enrichment": {
+      "benefits": "Softens the pelvic floor and the broad ligament, providing more room for the baby to rotate from a 'sunny-side up' position.",
+      "similar_exercises": ["side_knee_to_chest", "single_leg_happy_baby", "asymmetric_rock_back"]
+    }
   }
 ]
