@@ -1077,5 +1077,53 @@
       "benefits": "Reduces stiffness in the SI joints and helps the baby navigate the pelvic mid-plane.",
       "similar_exercises": ["pelvic_tilt_quadruped", "yoga_ball_pelvic_circles", "standing_hip_shifts"]
     }
+  },
+  {
+    "id": "standing_hip_shifts",
+    "name": "Standing Hip Shifts",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 20,
+      "sets": 1,
+      "note": "Perform 20 shifts total (10 per side)."
+    },
+    "primary_source": {
+      "video_file": "1000087097.mp4",
+      "clip_start": "00:27",
+      "clip_end": "00:31"
+    },
+    "instructions": [
+      "Step 1: Stand with your feet slightly wider than hip-width apart.",
+      "Step 2: Keep a soft bend in your knees; do not lock them.",
+      "Step 3: Shift your weight and your hips slowly to the left.",
+      "Step 4: Shift your weight and your hips slowly to the right.",
+      "Step 5: Keep your torso upright and your hands on your hips to feel the movement in the pelvic bowl."
+    ],
+    "variations": [
+      {
+        "name": "Standing Pelvic Tilts",
+        "video_ref": {
+          "file": "1000087136.mp4",
+          "start": "00:04",
+          "end": "00:07"
+        },
+        "instruction_note": "While standing, perform forward and backward tilts of the pelvis instead of lateral shifts."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "A great alternative if kneeling on the floor is uncomfortable. Use a wall or counter for balance if needed.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Loosens the soft tissues around the hips and encourages the baby to find an optimal position by providing gentle movement.",
+      "similar_exercises": ["pelvic_tilt_quadruped", "pelvic_clock_quadruped", "yoga_ball_pelvic_circles"]
+    }
   }
 ]
