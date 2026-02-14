@@ -1020,5 +1020,62 @@
       "benefits": "Provides a safe way to stretch the psoas and hip flexors while minimizing the risk of falling due to 3rd-trimester balance shifts.",
       "similar_exercises": ["kneeling_psoas_stretch", "lizard_pose", "asymmetric_rock_back"]
     }
+  },
+  {
+    "id": "pelvic_clock_quadruped",
+    "name": "Pelvic Clock Circles",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 2,
+      "note": "Perform 10 full rotations in each direction."
+    },
+    "primary_source": {
+      "video_file": "1000087132.mp4",
+      "clip_start": "00:15",
+      "clip_end": "00:20"
+    },
+    "instructions": [
+      "Step 1: Start on hands and knees in a neutral tabletop position.",
+      "Step 2: Imagine your pelvis is a clock face parallel to the floor.",
+      "Step 3: Move your hips in a slow, smooth circle, hitting every 'hour' on the clock.",
+      "Step 4: Focus on the sensation of the hip sockets and lower back loosening up.",
+      "Step 5: Switch directions after 10 full rotations."
+    ],
+    "variations": [
+      {
+        "name": "Large Hip Swings",
+        "video_ref": {
+          "file": "1000087132.mp4",
+          "start": "00:15",
+          "end": "00:20"
+        },
+        "instruction_note": "Increase the diameter of the circles to involve the side body and ribs."
+      },
+      {
+        "name": "Ball Pelvic Circles",
+        "video_ref": {
+          "file": "1000087134.mp4",
+          "start": "00:39",
+          "end": "00:44"
+        },
+        "instruction_note": "Perform identical circular movements while seated on a birthing ball to use gravity."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "If circling causes any 'clicking' or 'popping' in the pubic bone, reduce the size of the circles.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Reduces stiffness in the SI joints and helps the baby navigate the pelvic mid-plane.",
+      "similar_exercises": ["pelvic_tilt_quadruped", "yoga_ball_pelvic_circles", "standing_hip_shifts"]
+    }
   }
 ]
