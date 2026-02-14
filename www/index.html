@@ -381,6 +381,19 @@ body {
   <input type="text" class="search-box" id="search-box" placeholder="Search exercises...">
   <div class="filter-row" id="filter-row"></div>
   <div id="library-list"></div>
+  <button id="download-json-btn" style="
+    display:block;
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:var(--radius);
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+  ">Save Exercises JSON to Device</button>
 </div>
 
 <!-- ===== STATS ===== -->
@@ -1103,6 +1116,22 @@ function renderStats() {
   html += `</div>`;
   container.innerHTML = html;
 }
+
+// ============================================================
+// DOWNLOAD JSON
+// ============================================================
+document.getElementById('download-json-btn').addEventListener('click', () => {
+  const exercises = loadExercises();
+  const blob = new Blob([JSON.stringify(exercises, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'exercises.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
 
 // ============================================================
 // INIT
