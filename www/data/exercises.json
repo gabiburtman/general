@@ -1605,5 +1605,53 @@
       "benefits": "Softens the pelvic floor and the broad ligament, providing more room for the baby to rotate from a 'sunny-side up' position.",
       "similar_exercises": ["side_knee_to_chest", "single_leg_happy_baby", "asymmetric_rock_back"]
     }
+  },
+  {
+    "id": "reclined_bound_angle",
+    "name": "Supported Reclined Butterfly",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group A: Pelvic Inlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "low"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 300,
+      "sets": 1,
+      "note": "Stay for 5–10 minutes for deep tissue release."
+    },
+    "primary_source": {
+      "video_file": "1000087097.mp4",
+      "clip_start": "00:36",
+      "clip_end": "00:40"
+    },
+    "instructions": [
+      "Step 1: Set up a bolster or a stack of firm pillows on an incline (about 45 degrees).",
+      "Step 2: Sit with your lower back against the base of the bolster and slowly lie back.",
+      "Step 3: Bring the soles of your feet together and let your knees fall open to the sides.",
+      "Step 4: Place yoga blocks, firm cushions, or rolled-up towels under your outer thighs so your legs feel completely supported.",
+      "Step 5: Rest your hands on your belly and focus on 'belly breathing,' allowing the pelvic floor to relax with every exhale."
+    ],
+    "variations": [
+      {
+        "name": "Flat Butterfly (Early/Mid Pregnancy)",
+        "video_ref": {
+          "file": "1000087097.mp4",
+          "start": "00:36",
+          "end": "00:40"
+        },
+        "instruction_note": "If lying flat is still comfortable, you can perform this without the bolster, but the incline is preferred for the 3rd trimester to avoid vena cava compression."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Always use the incline. If you feel any tingling in your legs, move the supports under your knees higher to reduce the stretch.",
+      "contraindications": "Stop if you feel dizzy or short of breath while reclined."
+    },
+    "enrichment": {
+      "benefits": "Opens the inner thighs and pelvic inlet while calming the nervous system, which is crucial for the hormonal shifts required for labor.",
+      "similar_exercises": ["butterfly_pose_rocking", "frog_pose_rocking", "single_leg_happy_baby"]
+    }
   }
 ]
