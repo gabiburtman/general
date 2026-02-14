@@ -1797,5 +1797,53 @@
       "benefits": "Builds the posterior strength needed for pushing and provides a gentle counter-stretch to tight hip flexors.",
       "similar_exercises": ["bird_dog_alternating", "single_leg_box_squat", "kneeling_side_plank"]
     }
+  },
+  {
+    "id": "deep_squat_breathing",
+    "name": "Deep Squat Breathing",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group B: Pelvic Outlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 60,
+      "sets": 1,
+      "note": "Take 5–10 very slow, intentional breaths."
+    },
+    "primary_source": {
+      "video_file": "1000087091.mp4",
+      "clip_start": "00:51",
+      "clip_end": "00:55"
+    },
+    "instructions": [
+      "Step 1: Get into a deep squat, supported by a yoga block under your bum or by holding onto a sturdy piece of furniture.",
+      "Step 2: Inhale deeply through your nose. Visualize the air traveling all the way down into your pelvis.",
+      "Step 3: As you inhale, feel your pelvic floor muscles (the space between your sit bones) widen, soften, and 'blossom' downward.",
+      "Step 4: Exhale slowly through your mouth with 'open' lips (like you are blowing through a straw).",
+      "Step 5: On the exhale, do NOT pull your muscles up; try to maintain that sense of heaviness and openness."
+    ],
+    "variations": [
+      {
+        "name": "Low Throne Breathing",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:51",
+          "end": "00:55"
+        },
+        "instruction_note": "If the squat is too much, sit on the very edge of a chair with your knees wide and lean forward slightly to achieve the same pelvic floor release."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Focus on the 'drop' of the pelvic floor rather than a forced push. Gentle expansion is the goal.",
+      "contraindications": "None, unless you have been told you have an 'incompetent cervix' or are on strict bed rest."
+    },
+    "enrichment": {
+      "benefits": "Trains the brain-body connection for the pushing phase of labor and helps prevent pelvic floor tearing by increasing muscle elasticity.",
+      "similar_exercises": ["supported_deep_squat_shift", "butterfly_pose_rocking", "seated_hip_wipers"]
+    }
   }
 ]
