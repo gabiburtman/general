@@ -745,5 +745,53 @@
       "benefits": "Relieves lower back tension and creates space in the upper pelvis to help the baby move into a better position.",
       "similar_exercises": ["frog_pose_rocking", "poppy_pose", "childs_pose_variations"]
     }
+  },
+  {
+    "id": "kneeling_side_plank",
+    "name": "Kneeling Side Plank",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group E: Lateral Stability & Strength",
+    "schedule": {
+      "frequency": "3x_week",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 30,
+      "sets": 2,
+      "note": "Hold for 30 seconds per side."
+    },
+    "primary_source": {
+      "video_file": "1000087093.mp4",
+      "clip_start": "00:55",
+      "clip_end": "01:17"
+    },
+    "instructions": [
+      "Step 1: Prop yourself up on your forearm with your elbow stacked directly under your shoulder.",
+      "Step 2: Keep your bottom knee bent on the floor and your top leg extended or stacked.",
+      "Step 3: On an exhale, 'hug the baby' in and up to engage the core.",
+      "Step 4: Lift your hips from the bottom waist to create a straight line from head to knees.",
+      "Step 5: Hold while breathing into your ribs and belly."
+    ],
+    "variations": [
+      {
+        "name": "Side Plank Inhale/Exhale",
+        "video_ref": {
+          "file": "1000087093.mp4",
+          "start": "01:09",
+          "end": "01:14"
+        },
+        "instruction_note": "Inhale to lower slightly and expand the ribs, exhale to lift and 'hug' the baby in."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Avoid letting your hips sag, which can strain the lower back. If this feels too intense, keep your hips on the floor and focus on the 'hug' engagement.",
+      "contraindications": "Stop if you notice coning/doming in the center of the abdomen or feel sharp pubic bone pain."
+    },
+    "enrichment": {
+      "benefits": "Strengthens the lateral core muscles, which helps manage the shifting center of gravity and reduces back pain.",
+      "similar_exercises": ["kneeling_side_crunch", "bear_hover", "bird_dog_alternating"]
+    }
   }
 ]
