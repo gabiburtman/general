@@ -649,5 +649,53 @@
       "benefits": "Improves internal rotation of the hip, which helps open the pelvic outlet and supports the baby's descent during the second stage of labor.",
       "similar_exercises": ["seated_internal_rotation", "deep_squat_rotations", "seated_hip_wipers"]
     }
+  },
+  {
+    "id": "lizard_pose",
+    "name": "Lizard Pose",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group C: Pelvic Asymmetry Fixers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 45,
+      "sets": 1,
+      "note": "Hold for 30-45 seconds per side."
+    },
+    "primary_source": {
+      "video_file": "1000087097.mp4",
+      "clip_start": "00:23",
+      "clip_end": "00:26"
+    },
+    "instructions": [
+      "Step 1: Start in a low lunge with your back knee on the floor.",
+      "Step 2: Place both hands on the floor inside your front foot.",
+      "Step 3: Walk your front foot out toward the edge of the mat to make room for your belly.",
+      "Step 4: Keep your chest lifted and gently sink your hips forward and down.",
+      "Step 5: For more intensity, you can lower onto your forearms if space allows."
+    ],
+    "variations": [
+      {
+        "name": "Lizard with Hip Circles",
+        "video_ref": {
+          "file": "1000087097.mp4",
+          "start": "00:23",
+          "end": "00:26"
+        },
+        "instruction_note": "Add small, slow circles with the hips while in the pose to increase joint mobility."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Use yoga blocks under your hands if the floor feels too far away. Ensure the back knee is padded with a blanket.",
+      "contraindications": "Avoid if you feel pulling or sharp pain in the pubic symphysis."
+    },
+    "enrichment": {
+      "benefits": "Deeply opens the hips and stretches the psoas, which helps balance the pelvis for baby's positioning.",
+      "similar_exercises": ["asymmetric_rock_back", "kneeling_psoas_stretch", "kneeling_lunge_ball_support"]
+    }
   }
 ]
