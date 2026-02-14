@@ -1,0 +1,8 @@
+{
+  "appId": "com.thirdtri.exercises",
+  "appName": "3rd Tri Exercises",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

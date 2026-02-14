@@ -1,0 +1,20 @@
+{
+  "name": "3rdtri-exercises",
+  "version": "1.0.0",
+  "description": "Third trimester exercise tracker",
+  "scripts": {
+    "prebuild": "npm run copy-web",
+    "build": "npx cap sync android && cd android && ./gradlew assembleDebug",
+    "presync": "npm run copy-web",
+    "sync": "npx cap sync android",
+    "copy-web": "cp index.html www/index.html && cp sw.js www/sw.js && cp manifest.json www/manifest.json && cp data/exercises.json www/data/exercises.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^8.1.0",
+    "@capacitor/cli": "^8.1.0",
+    "@capacitor/core": "^8.1.0"
+  }
+}
