@@ -177,5 +177,62 @@
       "benefits": "Strengthens the transverse abdominis to support the weight of the belly and stabilize the spine.",
       "similar_exercises": []
     }
+  },
+  {
+    "id": "seated_internal_rotation",
+    "name": "Seated Hip Internal Rotation",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group B: Pelvic Outlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 25,
+      "sets": 3,
+      "note": "10-25 reps per side, ideally performed morning and evening."
+    },
+    "primary_source": {
+      "video_file": "1000087101.mp4",
+      "clip_start": "00:30",
+      "clip_end": "00:43"
+    },
+    "instructions": [
+      "Step 1: Sit on the floor with your legs wide in a 'V' shape.",
+      "Step 2: Lean back slightly on your hands for support.",
+      "Step 3: Rotate one knee inward toward the floor, aiming for a 90-degree angle at the knee.",
+      "Step 4: Keep the other leg stable and the opposite hip grounded.",
+      "Step 5: Return to center and alternate sides."
+    ],
+    "variations": [
+      {
+        "name": "Deep Squat Internal Rotation",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:23",
+          "end": "00:25"
+        },
+        "instruction_note": "Perform the rotation while staying in a deep squat position for added intensity."
+      },
+      {
+        "name": "90/90 Lift",
+        "video_ref": {
+          "file": "1000087136.mp4",
+          "start": "00:17",
+          "end": "00:24"
+        },
+        "instruction_note": "A strength-based variation where you lift the hip from a 90/90 seated position."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Do not force the knee to the floor if you feel sharp pain. Only rotate within your comfortable range of motion.",
+      "contraindications": "Sharp knee or hip joint pain."
+    },
+    "enrichment": {
+      "benefits": "Increases the space in the lower pelvis (outlet), which is critical for the baby's exit during delivery.",
+      "similar_exercises": ["quadruped_hip_shift", "seated_hip_wipers", "deep_squat_rotations"]
+    }
   }
 ]
