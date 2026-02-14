@@ -1,1 +1,76 @@
-[]
+[
+  {
+    "id": "pelvic_tilt_quadruped",
+    "name": "Pelvic Tilt (Cat/Cow)",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group D: Spinal & Pelvic Mobility",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 3,
+      "note": "Focus on the tucking of the tailbone."
+    },
+    "primary_source": {
+      "video_file": "1000087136.mp4",
+      "clip_start": "00:04",
+      "clip_end": "00:07"
+    },
+    "instructions": [
+      "Step 1: Start on hands and knees with wrists under shoulders and knees under hips.",
+      "Step 2: Inhale, drop your belly toward the floor, and look up slightly (Cow).",
+      "Step 3: Exhale, round your spine toward the ceiling, and tuck your chin to your chest (Cat).",
+      "Step 4: Move rhythmically with your breath."
+    ],
+    "variations": [
+      {
+        "name": "Evening Pelvic Release Shake",
+        "video_ref": {
+          "file": "1000087107.mp4",
+          "start": "00:08",
+          "end": "00:12"
+        },
+        "instruction_note": "A loose, shaking movement on all fours to release evening tension."
+      },
+      {
+        "name": "Quick Prep 8-Rep",
+        "video_ref": {
+          "file": "1000087120.mp4",
+          "start": "00:05",
+          "end": "00:08"
+        },
+        "instruction_note": "Perform exactly 8 reps as part of a 5-minute daily routine."
+      },
+      {
+        "name": "Deep Belly Breath Focus",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:07",
+          "end": "00:10"
+        },
+        "instruction_note": "Emphasize expanding the belly fully on the inhale."
+      },
+      {
+        "name": "Feet In/Out Modification",
+        "video_ref": {
+          "file": "1000087099.mp4",
+          "start": "00:10",
+          "end": "00:14"
+        },
+        "instruction_note": "Experiment with bringing feet together or wide to change pelvic sensations."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Very safe. If wrists are sore, perform on fists instead.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Helps baby move into the optimal position (LOA) and relieves back pressure.",
+      "similar_exercises": ["pelvic_clock_quadruped", "yoga_ball_pelvic_circles"]
+    }
+  }
+]
