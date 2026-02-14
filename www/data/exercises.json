@@ -601,5 +601,53 @@
       "benefits": "Increases blood flow to the pelvic region and helps release the adductors, which can become tight as the body prepares for labor.",
       "similar_exercises": ["frog_pose_rocking", "seated_straddle_rock", "single_leg_happy_baby"]
     }
+  },
+  {
+    "id": "quadruped_hip_shift",
+    "name": "Quadruped Hip Shift",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group B: Pelvic Outlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 20,
+      "sets": 1,
+      "note": "Perform 15-20 repetitions per side."
+    },
+    "primary_source": {
+      "video_file": "1000086822.mp4",
+      "clip_start": "00:00",
+      "clip_end": "00:15"
+    },
+    "instructions": [
+      "Step 1: Start on all fours with a neutral spine.",
+      "Step 2: Place one knee on a yoga block or a thick book to elevate it.",
+      "Step 3: Keep your hands and the opposite foot planted for stability.",
+      "Step 4: Lift the non-elevated hip toward the ceiling, then lower it toward the floor.",
+      "Step 5: Focus on the movement coming from the pelvis and hip, not the spine."
+    ],
+    "variations": [
+      {
+        "name": "Standing Hip Shift",
+        "video_ref": {
+          "file": "1000087097.mp4",
+          "start": "00:27",
+          "end": "00:31"
+        },
+        "instruction_note": "A standing version where you shift weight side-to-side in a forward fold to achieve similar pelvic mobility."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Maintain a steady breath and avoid any sudden, jerky movements. Ensure the block is secure on your mat.",
+      "contraindications": "Stop if you feel sharp pain in the pubic bone or have been diagnosed with severe Symphysis Pubis Dysfunction (SPD)."
+    },
+    "enrichment": {
+      "benefits": "Improves internal rotation of the hip, which helps open the pelvic outlet and supports the baby's descent during the second stage of labor.",
+      "similar_exercises": ["seated_internal_rotation", "deep_squat_rotations", "seated_hip_wipers"]
+    }
   }
 ]
