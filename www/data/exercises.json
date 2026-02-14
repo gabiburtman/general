@@ -697,5 +697,53 @@
       "benefits": "Deeply opens the hips and stretches the psoas, which helps balance the pelvis for baby's positioning.",
       "similar_exercises": ["asymmetric_rock_back", "kneeling_psoas_stretch", "kneeling_lunge_ball_support"]
     }
+  },
+  {
+    "id": "side_knee_to_chest",
+    "name": "Side Knee to Chest",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group A: Pelvic Inlet Openers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "high"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 1,
+      "note": "Perform 10 slow, controlled repetitions on each side."
+    },
+    "primary_source": {
+      "video_file": "1000087099.mp4",
+      "clip_start": "00:27",
+      "clip_end": "00:30"
+    },
+    "instructions": [
+      "Step 1: Lie on your side with your legs stacked and a slight bend in your knees.",
+      "Step 2: Support your head with your bottom arm or a pillow.",
+      "Step 3: Gently pull your top knee toward your chest, using your hand to guide it.",
+      "Step 4: Hold for a moment at the top of the movement, then slowly lower the leg back down.",
+      "Step 5: Roll onto the other side and repeat the sequence."
+    ],
+    "variations": [
+      {
+        "name": "Side-Lying Thoracic Rotation",
+        "video_ref": {
+          "file": "1000087136.mp4",
+          "start": "00:12",
+          "end": "00:16"
+        },
+        "instruction_note": "While holding the knee-to-chest position, rotate your upper body away from the knee to add a spinal twist."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "Use a pillow between your knees if stacking them causes hip discomfort. Ensure you are not rolling onto your back.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Relieves lower back tension and creates space in the upper pelvis to help the baby move into a better position.",
+      "similar_exercises": ["frog_pose_rocking", "poppy_pose", "childs_pose_variations"]
+    }
   }
 ]
