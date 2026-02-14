@@ -963,5 +963,62 @@
       "benefits": "Releases tension in the psoas and iliacus, allowing the pelvis to tilt properly for baby's engagement.",
       "similar_exercises": ["asymmetric_rock_back", "lizard_pose", "kneeling_lunge_ball_support"]
     }
+  },
+  {
+    "id": "kneeling_lunge_ball_support",
+    "name": "Supported Kneeling Lunge",
+    "category": "mobility",
+    "specialist": false,
+    "replacement_group": "Group C: Pelvic Asymmetry Fixers",
+    "schedule": {
+      "frequency": "daily",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "timer",
+      "default_amount": 60,
+      "sets": 1,
+      "note": "Hold for 60 seconds per side."
+    },
+    "primary_source": {
+      "video_file": "1000087122.mp4",
+      "clip_start": "00:15",
+      "clip_end": "00:19"
+    },
+    "instructions": [
+      "Step 1: Place a large exercise ball in front of you.",
+      "Step 2: Step one foot forward into a lunge and drop your back knee to a padded floor.",
+      "Step 3: Lean your torso forward to rest your forearms and chest on the ball.",
+      "Step 4: Allow your hips to sink forward while the ball supports your upper body weight.",
+      "Step 5: Breathe deeply into your lower back and pelvis."
+    ],
+    "variations": [
+      {
+        "name": "Lunge with Hip Circles",
+        "video_ref": {
+          "file": "1000087122.mp4",
+          "start": "00:15",
+          "end": "00:19"
+        },
+        "instruction_note": "While leaning on the ball, move your hips in small, gentle circles to lubricate the hip socket."
+      },
+      {
+        "name": "Deep Lunge Rocking",
+        "video_ref": {
+          "file": "1000087091.mp4",
+          "start": "00:38",
+          "end": "00:43"
+        },
+        "instruction_note": "Drive the hips forward and back rhythmically to increase mobility."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "The ball is excellent for taking the weight off your spine as the belly grows. Ensure the ball is not on a slippery surface.",
+      "contraindications": "None."
+    },
+    "enrichment": {
+      "benefits": "Provides a safe way to stretch the psoas and hip flexors while minimizing the risk of falling due to 3rd-trimester balance shifts.",
+      "similar_exercises": ["kneeling_psoas_stretch", "lizard_pose", "asymmetric_rock_back"]
+    }
   }
 ]
