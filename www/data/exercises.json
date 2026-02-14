@@ -1173,5 +1173,53 @@
       "benefits": "Improves balance and counteracts the forward pull of the belly by strengthening the back extensors.",
       "similar_exercises": ["bear_hover", "kneeling_side_plank", "kneeling_side_crunch"]
     }
+  },
+  {
+    "id": "kneeling_side_crunch",
+    "name": "Kneeling Side Crunch",
+    "category": "strength",
+    "specialist": false,
+    "replacement_group": "Group E: Lateral Stability & Strength",
+    "schedule": {
+      "frequency": "3x_week",
+      "priority": "medium"
+    },
+    "execution": {
+      "type": "reps",
+      "default_amount": 10,
+      "sets": 2,
+      "note": "Perform 10 slow, controlled crunches per side."
+    },
+    "primary_source": {
+      "video_file": "1000087130.mp4",
+      "clip_start": "00:20",
+      "clip_end": "00:27"
+    },
+    "instructions": [
+      "Step 1: Start in a kneeling side plank position, supported by your bottom knee and forearm.",
+      "Step 2: Extend your top arm overhead and your top leg out straight.",
+      "Step 3: On an exhale, 'hug the baby' and bring your top elbow and top knee together toward your side.",
+      "Step 4: Inhale as you extend back out to the starting position.",
+      "Step 5: Maintain a stable torso; do not let your hips sag toward the floor."
+    ],
+    "variations": [
+      {
+        "name": "Standing Side Reach",
+        "video_ref": {
+          "file": "1000087134.mp4",
+          "start": "00:09",
+          "end": "00:15"
+        },
+        "instruction_note": "A lower-intensity standing version that focuses on the side-body stretch rather than the crunch."
+      }
+    ],
+    "safety_profile": {
+      "trimester_3_notes": "The range of motion may be smaller due to the belly; focus on the muscle contraction rather than touching the elbow to the knee.",
+      "contraindications": "Stop if you notice coning/doming or feel sharp pulling in the round ligaments."
+    },
+    "enrichment": {
+      "benefits": "Improves lateral core strength and hip stability, which can help alleviate common third-trimester side-body and hip pain.",
+      "similar_exercises": ["kneeling_side_plank", "bear_hover", "bird_dog_alternating"]
+    }
   }
 ]
