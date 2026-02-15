@@ -345,6 +345,60 @@ body {
 .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
 .empty-state p { font-size: 15px; line-height: 1.5; }
 
+/* ---- PLAN CONTROLS ---- */
+.plan-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.plan-bar .plan-info {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-light);
+}
+.plan-bar .plan-info strong {
+  color: var(--text);
+  font-size: 14px;
+}
+.btn-plan {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  white-space: nowrap;
+}
+.btn-plan:active { opacity: 0.8; }
+.day-col .day-time {
+  font-size: 10px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+.time-badge {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 4px;
+}
+.coverage-note {
+  font-size: 12px;
+  color: var(--text-light);
+  padding: 8px 0;
+  line-height: 1.5;
+}
+
 /* ---- UTILITIES ---- */
 .fade-in { animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -372,6 +426,7 @@ body {
 
 <!-- ===== WEEK ===== -->
 <div class="page" id="page-week">
+  <div class="plan-bar" id="plan-bar"></div>
   <div class="week-grid" id="week-grid"></div>
   <div class="week-day-detail" id="week-day-detail"></div>
 </div>
@@ -476,6 +531,27 @@ async function seedFromJSON() {
 }
 
 // ============================================================
+// WEEKLY PLAN - Smart 15-minute daily plans
+// ============================================================
+const PLAN_KEY = '3rdtri_weekplan';
+const DAILY_BUDGET_SECONDS = 900; // 15 minutes
+const TRANSITION_SECONDS = 10;
+
+function loadWeekPlan(mondayDate) {
+  const raw = localStorage.getItem(PLAN_KEY);
+  if (!raw) return null;
+  const plans = JSON.parse(raw);
+  return plans[mondayDate] || null;
+}
+
+function saveWeekPlan(mondayDate, plan) {
+  const raw = localStorage.getItem(PLAN_KEY);
+  const plans = raw ? JSON.parse(raw) : {};
+  plans[mondayDate] = plan;
+  localStorage.setItem(PLAN_KEY, JSON.stringify(plans));
+}
+
+// ============================================================
 // ACCESSORS - adapt user's rich schema to UI needs
 // ============================================================
 function exFreq(ex) {
@@ -522,7 +598,7 @@ function exDoseText(ex) {
   const amt = exAmount(ex);
   const sets = exSets(ex);
   let base = '';
-  if (t === 'timed' || t === 'timed_hold') base = amt + 's';
+  if (t === 'timer' || t === 'timed' || t === 'timed_hold') base = amt + 's';
   else base = amt + ' reps';
   if (sets > 1) base += ' x ' + sets + ' sets';
   return base;
@@ -579,12 +655,25 @@ function assignDays(daysPerWeek) {
 function getScheduleForDate(dateString) {
   const exercises = loadExercises();
   const monday = getMonday(dateString);
-  const daysSinceMonday = Math.round((new Date(dateString) - new Date(monday)) / 86400000);
-  const dayIndex = daysSinceMonday;
+  const dayIndex = Math.round((new Date(dateString) - new Date(monday)) / 86400000);
 
   const swaps = loadSwaps();
   const dateSwaps = swaps[dateString] || {};
 
+  // Check for a generated weekly plan
+  const plan = loadWeekPlan(monday);
+  if (plan) {
+    const dayIds = [...plan.specialistIds, ...(plan.days[dayIndex] || [])];
+    return dayIds.map(id => {
+      if (dateSwaps[id]) {
+        const swapped = exercises.find(e => e.id === dateSwaps[id]);
+        if (swapped) return { ...swapped, _swappedFrom: id };
+      }
+      return exercises.find(e => e.id === id);
+    }).filter(Boolean);
+  }
+
+  // Fallback: old deterministic schedule
   return exercises.filter(ex => {
     const dpw = freqToDaysPerWeek(exFreq(ex));
     const days = assignDays(dpw);
@@ -596,6 +685,192 @@ function getScheduleForDate(dateString) {
     }
     return ex;
   });
+}
+
+// ============================================================
+// DURATION ESTIMATION
+// ============================================================
+function estimateDuration(ex) {
+  const type = exType(ex);
+  const amount = exAmount(ex);
+  const sets = exSets(ex);
+  if (type === 'timer' || type === 'timed' || type === 'timed_hold') {
+    return amount * sets;
+  }
+  // reps: ~3 seconds per rep
+  return amount * sets * 3;
+}
+
+function estimateDaySeconds(exerciseList) {
+  if (!exerciseList || exerciseList.length === 0) return 0;
+  return exerciseList.reduce((sum, ex) => sum + estimateDuration(ex) + TRANSITION_SECONDS, 0);
+}
+
+function formatTimeMinSec(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.round(seconds % 60);
+  if (mins === 0) return secs + 's';
+  if (secs === 0) return mins + ' min';
+  return mins + ':' + String(secs).padStart(2, '0');
+}
+
+// ============================================================
+// WEEKLY PLAN GENERATOR
+// ============================================================
+function generateWeeklyPlan(mondayDate) {
+  const exercises = loadExercises();
+  if (exercises.length === 0) return null;
+
+  // Calculate durations (exercise time + transition)
+  const exDur = {};
+  exercises.forEach(ex => {
+    exDur[ex.id] = estimateDuration(ex) + TRANSITION_SECONDS;
+  });
+
+  // Classify: daily specialists vs everything else
+  const dailySpecialists = exercises.filter(ex => ex.specialist && exFreq(ex) === 'daily');
+  const nonSpecialists = exercises.filter(ex => !(ex.specialist && exFreq(ex) === 'daily'));
+
+  const specialistTime = dailySpecialists.reduce((sum, ex) => sum + exDur[ex.id], 0);
+  const dailyBudget = DAILY_BUDGET_SECONDS - specialistTime;
+
+  // Determine max and target appearances per week
+  const maxApps = {};
+  const targetApps = {};
+  nonSpecialists.forEach(ex => {
+    const freq = freqToDaysPerWeek(exFreq(ex));
+    maxApps[ex.id] = freq;
+    const priority = exPriority(ex);
+    if (priority === 'high') targetApps[ex.id] = Math.min(freq, 5);
+    else if (priority === 'medium') targetApps[ex.id] = Math.min(freq, 3);
+    else targetApps[ex.id] = 1;
+    targetApps[ex.id] = Math.max(1, targetApps[ex.id]);
+  });
+
+  // Initialize plan
+  const weekPlan = Array.from({length: 7}, () => []);
+  const dayTimeUsed = Array(7).fill(0);
+  const assigned = {};
+  nonSpecialists.forEach(ex => assigned[ex.id] = new Set());
+
+  // Find the best day for an exercise
+  function findBestDay(ex, excludeDays) {
+    if (assigned[ex.id].size >= maxApps[ex.id]) return -1;
+    let bestDay = -1;
+    let bestScore = -Infinity;
+
+    for (let day = 0; day < 7; day++) {
+      if (assigned[ex.id].has(day)) continue;
+      if (excludeDays && excludeDays.has(day)) continue;
+      if (dayTimeUsed[day] + exDur[ex.id] > dailyBudget) continue;
+
+      let score = 0;
+      // Prefer days with more remaining time
+      score += (dailyBudget - dayTimeUsed[day]) / Math.max(dailyBudget, 1) * 10;
+
+      // Penalize days where this group is already represented
+      const group = exGroup(ex);
+      if (group) {
+        const groupCount = weekPlan[day].filter(e => exGroup(e) === group).length;
+        score -= groupCount * 15;
+      }
+
+      // Prefer spreading across the week
+      for (const d of assigned[ex.id]) {
+        const gap = Math.abs(day - d);
+        if (gap <= 1) score -= 8;
+        else if (gap === 2) score -= 3;
+      }
+
+      // Small random factor
+      score += Math.random() * 2;
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestDay = day;
+      }
+    }
+    return bestDay;
+  }
+
+  function assignToDay(ex, day) {
+    weekPlan[day].push(ex);
+    dayTimeUsed[day] += exDur[ex.id];
+    assigned[ex.id].add(day);
+  }
+
+  // Priority ordering
+  const priorityOrder = {high: 0, medium: 1, low: 2};
+
+  // Phase 1: Guarantee every exercise appears at least once
+  const sorted = [...nonSpecialists].sort((a, b) => {
+    const pa = priorityOrder[exPriority(a)] || 1;
+    const pb = priorityOrder[exPriority(b)] || 1;
+    if (pa !== pb) return pa - pb;
+    // Shorter exercises first within same priority (easier to fit)
+    return exDur[a.id] - exDur[b.id];
+  });
+
+  for (const ex of sorted) {
+    if (assigned[ex.id].size === 0) {
+      const day = findBestDay(ex);
+      if (day !== -1) assignToDay(ex, day);
+    }
+  }
+
+  // Phase 2: Fill toward target appearances
+  for (let pass = 0; pass < 6; pass++) {
+    const pool = [...nonSpecialists]
+      .filter(ex => assigned[ex.id].size < targetApps[ex.id])
+      .sort((a, b) => {
+        // Exercises furthest from target first
+        const aRatio = assigned[a.id].size / targetApps[a.id];
+        const bRatio = assigned[b.id].size / targetApps[b.id];
+        if (Math.abs(aRatio - bRatio) > 0.1) return aRatio - bRatio;
+        // Then higher priority first
+        return (priorityOrder[exPriority(a)] || 1) - (priorityOrder[exPriority(b)] || 1);
+      });
+
+    let placed = false;
+    for (const ex of pool) {
+      if (assigned[ex.id].size >= targetApps[ex.id]) continue;
+      const day = findBestDay(ex);
+      if (day !== -1) {
+        assignToDay(ex, day);
+        placed = true;
+      }
+    }
+    if (!placed) break;
+  }
+
+  // Phase 3: Fill remaining time on underfilled days with high-priority extras
+  for (let day = 0; day < 7; day++) {
+    if (dayTimeUsed[day] < dailyBudget * 0.6) {
+      const candidates = nonSpecialists
+        .filter(ex =>
+          !assigned[ex.id].has(day) &&
+          assigned[ex.id].size < maxApps[ex.id] &&
+          dayTimeUsed[day] + exDur[ex.id] <= dailyBudget
+        )
+        .sort((a, b) => (priorityOrder[exPriority(a)] || 1) - (priorityOrder[exPriority(b)] || 1));
+
+      for (const ex of candidates) {
+        if (dayTimeUsed[day] + exDur[ex.id] > dailyBudget) continue;
+        assignToDay(ex, day);
+      }
+    }
+  }
+
+  // Build and save plan
+  const plan = {
+    mondayDate,
+    generated: new Date().toISOString(),
+    specialistIds: dailySpecialists.map(ex => ex.id),
+    days: weekPlan.map(dayExs => dayExs.map(ex => ex.id))
+  };
+
+  saveWeekPlan(mondayDate, plan);
+  return plan;
 }
 
 // ============================================================
@@ -675,9 +950,10 @@ function renderToday() {
   const dateString = today();
   const scheduled = getScheduleForDate(dateString);
   const { total, done } = getDayStats(dateString);
+  const estTime = estimateDaySeconds(scheduled);
 
   document.getElementById('today-done-count').textContent = done;
-  document.getElementById('today-done-label').textContent = `exercise${done !== 1 ? 's' : ''} done today`;
+  document.getElementById('today-done-label').textContent = `exercise${done !== 1 ? 's' : ''} done today \u00B7 ~${formatTimeMinSec(estTime)}`;
   document.getElementById('today-progress-fill').style.width = total ? (done / total * 100) + '%' : '0%';
   document.getElementById('today-progress-text').textContent = `${done} / ${total}`;
 
@@ -875,6 +1151,38 @@ function openSwapModal(exerciseId, dateString) {
 // ============================================================
 function renderWeek() {
   const monday = getMonday(today());
+  const plan = loadWeekPlan(monday);
+
+  // Plan bar
+  const planBar = document.getElementById('plan-bar');
+  if (plan) {
+    // Count unique exercises across the week
+    const allIds = new Set();
+    plan.specialistIds.forEach(id => allIds.add(id));
+    plan.days.forEach(dayIds => dayIds.forEach(id => allIds.add(id)));
+    const totalExercises = loadExercises().length;
+    planBar.innerHTML = `
+      <div class="plan-info">
+        <strong>Weekly Plan Active</strong><br>
+        ${allIds.size}/${totalExercises} exercises covered &middot; 15 min/day
+      </div>
+      <button class="btn-plan" id="regen-plan-btn">Shuffle</button>`;
+  } else {
+    planBar.innerHTML = `
+      <div class="plan-info">
+        <strong>No plan yet</strong><br>
+        Generate a smart 15-min daily plan
+      </div>
+      <button class="btn-plan" id="regen-plan-btn">Generate</button>`;
+  }
+
+  document.getElementById('regen-plan-btn').addEventListener('click', () => {
+    generateWeeklyPlan(monday);
+    renderWeek();
+    if (currentPage === 'today') renderToday();
+  });
+
+  // Week grid
   const grid = document.getElementById('week-grid');
   let html = '';
 
@@ -884,7 +1192,10 @@ function renderWeek() {
     const isToday = d === today();
     const isFuture = d > today();
     const sel = d === selectedWeekDate;
+    const daySchedule = getScheduleForDate(d);
     const { total, done } = getDayStats(d);
+    const estTime = estimateDaySeconds(daySchedule);
+    const timeLabel = total > 0 ? Math.round(estTime / 60) + 'm' : '';
     const dots = total > 0 ? (done === total ? '&#10003;' : Array(Math.min(done, 5)).fill('&#9679;').join('')) : '';
 
     html += `
@@ -892,6 +1203,7 @@ function renderWeek() {
         <div class="day-label">${DAY_NAMES[dt.getDay()]}</div>
         <div class="day-num">${dt.getDate()}</div>
         <div class="day-dots">${dots || '&nbsp;'}</div>
+        <div class="day-time">${timeLabel}</div>
       </div>`;
   }
   grid.innerHTML = html;
@@ -903,14 +1215,22 @@ function renderWeek() {
     });
   });
 
+  // Day detail
   const detail = document.getElementById('week-day-detail');
   const scheduled = getScheduleForDate(selectedWeekDate);
   const { total, done } = getDayStats(selectedWeekDate);
+  const estTime = estimateDaySeconds(scheduled);
 
-  let detailHTML = `<div class="section-title">${formatDateShort(selectedWeekDate)} &mdash; ${done}/${total} done</div>`;
+  let detailHTML = `<div class="section-title">${formatDateShort(selectedWeekDate)} &mdash; ${done}/${total} done <span class="time-badge">~${formatTimeMinSec(estTime)}</span></div>`;
+
   if (scheduled.length === 0) {
     detailHTML += `<p style="color:var(--text-light);font-size:14px;padding:12px 0;">Rest day or no exercises assigned.</p>`;
   } else {
+    // Show groups covered
+    const groups = new Set(scheduled.map(ex => exGroup(ex)).filter(Boolean));
+    if (groups.size > 0) {
+      detailHTML += `<div class="coverage-note">Groups: ${[...groups].map(g => g.replace('Group ', '')).join(' &middot; ')}</div>`;
+    }
     scheduled.forEach(ex => {
       detailHTML += exerciseCardHTML(ex, selectedWeekDate);
     });
@@ -1138,6 +1458,13 @@ document.getElementById('download-json-btn').addEventListener('click', () => {
 // ============================================================
 async function init() {
   await seedFromJSON();
+
+  // Auto-generate weekly plan if none exists for current week
+  const monday = getMonday(today());
+  if (!loadWeekPlan(monday)) {
+    generateWeeklyPlan(monday);
+  }
+
   updateHeader();
   renderCurrentPage();
 }
