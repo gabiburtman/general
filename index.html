@@ -399,6 +399,145 @@ body {
   line-height: 1.5;
 }
 
+/* ---- EXERCISE PLAYER ---- */
+.player-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 300;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+}
+.player-overlay.active { display: flex; }
+.player-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+}
+.player-name {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+  padding: 0 48px;
+}
+.player-set-label {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+.player-ring-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin-bottom: 32px;
+}
+.player-ring-wrap svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.player-ring-bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 8;
+}
+.player-ring-fill {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s linear;
+}
+.player-ring-fill.done-ring {
+  stroke: var(--success);
+}
+.player-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.player-big-num {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+}
+.player-sub-label {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.player-controls {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+.player-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.player-btn:active { transform: scale(0.92); }
+.player-btn-primary {
+  background: var(--primary);
+  color: white;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+}
+.player-btn-secondary {
+  background: var(--border);
+  color: var(--text);
+}
+.player-tap-zone {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+.player-tap-hint {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 8px;
+}
+.player-note {
+  font-size: 13px;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 16px;
+  max-width: 280px;
+  line-height: 1.4;
+}
+.player-rest-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
 /* ---- UTILITIES ---- */
 .fade-in { animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -462,6 +601,31 @@ body {
     <h3 id="swap-title">Swap exercise</h3>
     <div id="swap-list"></div>
   </div>
+</div>
+
+<!-- ===== EXERCISE PLAYER ===== -->
+<div class="player-overlay" id="player-overlay">
+  <button class="player-close" id="player-close-btn">&times;</button>
+  <div class="player-name" id="player-name"></div>
+  <div class="player-set-label" id="player-set-label"></div>
+  <div class="player-ring-wrap">
+    <svg viewBox="0 0 120 120">
+      <circle class="player-ring-bg" cx="60" cy="60" r="52"/>
+      <circle class="player-ring-fill" id="player-ring" cx="60" cy="60" r="52"
+        stroke-dasharray="326.73" stroke-dashoffset="0"/>
+    </svg>
+    <div class="player-center">
+      <div class="player-big-num" id="player-big-num">0</div>
+      <div class="player-sub-label" id="player-sub-label"></div>
+      <div class="player-tap-zone" id="player-tap-zone" style="display:none;"></div>
+    </div>
+  </div>
+  <div id="player-tap-hint" class="player-tap-hint" style="display:none;"></div>
+  <div class="player-controls" id="player-controls">
+    <button class="player-btn player-btn-secondary" id="player-stop-btn">&#9632;</button>
+    <button class="player-btn player-btn-primary" id="player-main-btn">&#9654;</button>
+  </div>
+  <div class="player-note" id="player-note"></div>
 </div>
 
 <!-- ===== BOTTOM NAV ===== -->
@@ -1032,6 +1196,7 @@ function exerciseCardHTML(ex, dateString) {
         ${detailHTML || '<p>No instructions yet.</p>'}
       </div>
       <div class="card-actions">
+        <button class="btn-start" data-start="${ex.id}" style="background:var(--primary);color:white;">Start</button>
         ${hasSwap ? `<button class="btn-swap" data-swap="${ex.id}">Swap</button>` : ''}
       </div>
     </div>`;
@@ -1052,6 +1217,14 @@ function attachCardListeners(container, dateString) {
       expandedCard = expandedCard === id ? null : id;
       renderCurrentPage();
     });
+
+    const startBtn = card.querySelector('.btn-start');
+    if (startBtn) {
+      startBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openPlayer(startBtn.dataset.start, dateString);
+      });
+    }
 
     const swapBtn = card.querySelector('.btn-swap');
     if (swapBtn) {
@@ -1436,6 +1609,280 @@ function renderStats() {
   html += `</div>`;
   container.innerHTML = html;
 }
+
+// ============================================================
+// EXERCISE PLAYER - timer countdown & rep counter
+// ============================================================
+const RING_CIRCUMFERENCE = 2 * Math.PI * 52; // matches r=52 in SVG
+const REST_BETWEEN_SETS = 10; // seconds
+
+let playerState = null; // { exerciseId, dateString, type, amount, sets, currentSet, currentCount, running, paused, interval, phase }
+
+function openPlayer(exerciseId, dateString) {
+  const exercises = loadExercises();
+  const ex = exercises.find(e => e.id === exerciseId);
+  if (!ex) return;
+
+  const type = exType(ex);
+  const isTimer = (type === 'timer' || type === 'timed' || type === 'timed_hold');
+  const amount = exAmount(ex);
+  const sets = exSets(ex);
+  const note = exNote(ex);
+
+  playerState = {
+    exerciseId,
+    dateString,
+    type: isTimer ? 'timer' : 'reps',
+    amount,
+    sets,
+    currentSet: 1,
+    currentCount: isTimer ? amount : 0,
+    running: false,
+    paused: false,
+    interval: null,
+    phase: 'ready' // ready, active, rest, done
+  };
+
+  // Set up UI
+  document.getElementById('player-name').textContent = ex.name;
+  document.getElementById('player-note').textContent = note || '';
+  updatePlayerDisplay();
+
+  document.getElementById('player-overlay').classList.add('active');
+
+  // Set up tap zone for reps
+  const tapZone = document.getElementById('player-tap-zone');
+  const tapHint = document.getElementById('player-tap-hint');
+  if (!isTimer) {
+    tapZone.style.display = 'block';
+    tapHint.style.display = 'block';
+    tapHint.textContent = 'Tap circle to count reps';
+  } else {
+    tapZone.style.display = 'none';
+    tapHint.style.display = 'none';
+  }
+}
+
+function updatePlayerDisplay() {
+  if (!playerState) return;
+  const { type, amount, sets, currentSet, currentCount, phase } = playerState;
+
+  const ring = document.getElementById('player-ring');
+  const bigNum = document.getElementById('player-big-num');
+  const subLabel = document.getElementById('player-sub-label');
+  const setLabel = document.getElementById('player-set-label');
+  const mainBtn = document.getElementById('player-main-btn');
+  const tapHint = document.getElementById('player-tap-hint');
+
+  // Set label
+  if (phase === 'done') {
+    setLabel.textContent = 'All done!';
+  } else if (phase === 'rest') {
+    setLabel.textContent = `Rest before set ${currentSet} of ${sets}`;
+  } else {
+    setLabel.textContent = sets > 1 ? `Set ${currentSet} of ${sets}` : '';
+  }
+
+  if (phase === 'done') {
+    bigNum.textContent = '\u2713';
+    bigNum.style.color = 'var(--success)';
+    subLabel.textContent = 'Exercise complete';
+    ring.style.strokeDashoffset = '0';
+    ring.classList.add('done-ring');
+    mainBtn.innerHTML = '\u2713';
+    mainBtn.style.background = 'var(--success)';
+    if (tapHint) tapHint.style.display = 'none';
+    return;
+  }
+
+  bigNum.style.color = 'var(--text)';
+  ring.classList.remove('done-ring');
+  mainBtn.style.background = '';
+
+  if (phase === 'rest') {
+    // Rest countdown
+    bigNum.textContent = currentCount;
+    subLabel.textContent = 'rest';
+    const progress = 1 - (currentCount / REST_BETWEEN_SETS);
+    ring.style.strokeDashoffset = (progress * RING_CIRCUMFERENCE).toFixed(1);
+    mainBtn.innerHTML = playerState.running ? '&#10074;&#10074;' : '&#9654;';
+    if (tapHint) tapHint.style.display = 'none';
+    return;
+  }
+
+  if (type === 'timer') {
+    // Show countdown
+    const mins = Math.floor(currentCount / 60);
+    const secs = currentCount % 60;
+    bigNum.textContent = mins > 0 ? `${mins}:${String(secs).padStart(2, '0')}` : secs;
+    subLabel.textContent = mins > 0 ? '' : 'seconds';
+
+    // Progress ring: fills as time counts down
+    const progress = 1 - (currentCount / amount);
+    ring.style.strokeDashoffset = (progress * RING_CIRCUMFERENCE).toFixed(1);
+
+    if (playerState.phase === 'ready') {
+      mainBtn.innerHTML = '&#9654;';
+    } else {
+      mainBtn.innerHTML = playerState.paused ? '&#9654;' : '&#10074;&#10074;';
+    }
+  } else {
+    // Reps mode
+    bigNum.textContent = `${currentCount}`;
+    subLabel.textContent = `of ${amount} reps`;
+
+    const progress = currentCount / amount;
+    ring.style.strokeDashoffset = ((1 - progress) * RING_CIRCUMFERENCE).toFixed(1);
+
+    if (playerState.phase === 'ready') {
+      mainBtn.innerHTML = '&#9654;';
+      if (tapHint) tapHint.textContent = 'Tap circle to count reps';
+    } else {
+      mainBtn.innerHTML = playerState.paused ? '&#9654;' : '&#10074;&#10074;';
+      if (tapHint) {
+        tapHint.style.display = 'block';
+        tapHint.textContent = 'Tap circle to count reps';
+      }
+    }
+  }
+}
+
+function startPlayer() {
+  if (!playerState) return;
+
+  if (playerState.phase === 'done') {
+    closePlayer();
+    return;
+  }
+
+  if (playerState.type === 'timer' || playerState.phase === 'rest') {
+    // Toggle pause/resume for timer and rest
+    if (playerState.running) {
+      // Pause
+      playerState.paused = true;
+      playerState.running = false;
+      clearInterval(playerState.interval);
+      playerState.interval = null;
+    } else {
+      // Start or resume
+      playerState.running = true;
+      playerState.paused = false;
+      if (playerState.phase === 'ready') playerState.phase = 'active';
+
+      playerState.interval = setInterval(() => {
+        playerState.currentCount--;
+        if (playerState.currentCount <= 0) {
+          clearInterval(playerState.interval);
+          playerState.interval = null;
+          playerState.running = false;
+          onSetComplete();
+        }
+        updatePlayerDisplay();
+      }, 1000);
+    }
+  } else {
+    // Reps mode - main button toggles pause of the session
+    if (playerState.phase === 'ready') {
+      playerState.phase = 'active';
+      playerState.running = true;
+    } else if (playerState.running) {
+      playerState.paused = true;
+      playerState.running = false;
+    } else {
+      playerState.paused = false;
+      playerState.running = true;
+    }
+  }
+  updatePlayerDisplay();
+}
+
+function countRep() {
+  if (!playerState || playerState.type !== 'reps') return;
+  if (playerState.phase === 'ready') {
+    playerState.phase = 'active';
+    playerState.running = true;
+  }
+  if (playerState.phase !== 'active' || playerState.paused) return;
+
+  playerState.currentCount++;
+  if (playerState.currentCount >= playerState.amount) {
+    onSetComplete();
+  }
+  updatePlayerDisplay();
+}
+
+function onSetComplete() {
+  if (!playerState) return;
+  clearInterval(playerState.interval);
+  playerState.interval = null;
+  playerState.running = false;
+
+  if (playerState.currentSet < playerState.sets) {
+    // Start rest period before next set
+    playerState.currentSet++;
+    playerState.currentCount = REST_BETWEEN_SETS;
+    playerState.phase = 'rest';
+    playerState.running = true;
+    updatePlayerDisplay();
+
+    playerState.interval = setInterval(() => {
+      playerState.currentCount--;
+      if (playerState.currentCount <= 0) {
+        clearInterval(playerState.interval);
+        playerState.interval = null;
+        playerState.running = false;
+        // Start next set
+        playerState.phase = 'active';
+        playerState.currentCount = playerState.type === 'timer' ? playerState.amount : 0;
+        updatePlayerDisplay();
+
+        // Auto-start timer for timer exercises
+        if (playerState.type === 'timer') {
+          startPlayer();
+        } else {
+          playerState.running = true;
+        }
+      }
+      updatePlayerDisplay();
+    }, 1000);
+  } else {
+    // All sets done - mark exercise complete
+    playerState.phase = 'done';
+    updatePlayerDisplay();
+
+    // Auto-mark as done
+    if (!isExerciseDone(playerState.dateString, playerState.exerciseId)) {
+      toggleExercise(playerState.dateString, playerState.exerciseId);
+    }
+  }
+}
+
+function closePlayer() {
+  if (playerState && playerState.interval) {
+    clearInterval(playerState.interval);
+  }
+  playerState = null;
+  document.getElementById('player-overlay').classList.remove('active');
+  renderCurrentPage();
+}
+
+// Wire up player controls
+document.getElementById('player-main-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  startPlayer();
+});
+document.getElementById('player-stop-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  closePlayer();
+});
+document.getElementById('player-close-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  closePlayer();
+});
+document.getElementById('player-tap-zone').addEventListener('click', (e) => {
+  e.stopPropagation();
+  countRep();
+});
 
 // ============================================================
 // DOWNLOAD JSON
