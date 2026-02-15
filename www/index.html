@@ -399,6 +399,97 @@ body {
   line-height: 1.5;
 }
 
+/* ---- WEEK NAV ---- */
+.week-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.week-nav-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.week-nav-btn:active { background: var(--primary-light); }
+.week-nav-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.week-nav-label .week-nav-sub {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-light);
+}
+.week-today-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* ---- WEEK SUMMARY ---- */
+.week-summary {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.week-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border);
+}
+.week-summary-row:last-child { border-bottom: none; }
+.week-summary-row strong { color: var(--text); }
+.week-summary-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ---- TOMORROW PREVIEW ---- */
+.tomorrow-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary);
+}
+.tomorrow-card .tomorrow-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.tomorrow-card .tomorrow-item {
+  font-size: 13px;
+  color: var(--text-light);
+  padding: 3px 0;
+}
+.tomorrow-card .tomorrow-meta {
+  font-size: 12px;
+  color: var(--primary-dark);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
 /* ---- EXERCISE PLAYER ---- */
 .player-overlay {
   display: none;
@@ -561,12 +652,15 @@ body {
     </div>
   </div>
   <div id="today-list"></div>
+  <div id="today-tomorrow"></div>
 </div>
 
 <!-- ===== WEEK ===== -->
 <div class="page" id="page-week">
   <div class="plan-bar" id="plan-bar"></div>
+  <div class="week-nav" id="week-nav"></div>
   <div class="week-grid" id="week-grid"></div>
+  <div id="week-summary"></div>
   <div class="week-day-detail" id="week-day-detail"></div>
 </div>
 
@@ -1065,6 +1159,7 @@ function getDayStats(dateString) {
 let currentPage = 'today';
 let selectedWeekDate = today();
 let expandedCard = null;
+let displayedWeekMonday = getMonday(today());
 
 // ============================================================
 // NAVIGATION
@@ -1145,6 +1240,24 @@ function renderToday() {
   }
   list.innerHTML = html;
   attachCardListeners(list, dateString);
+
+  // Tomorrow preview
+  const tomorrowEl = document.getElementById('today-tomorrow');
+  const tomorrowDate = addDays(dateString, 1);
+  const tomorrowSchedule = getScheduleForDate(tomorrowDate);
+  if (tomorrowSchedule.length > 0) {
+    const tomorrowTime = estimateDaySeconds(tomorrowSchedule);
+    let tmHtml = `<div class="tomorrow-card">
+      <div class="tomorrow-title">Tomorrow &mdash; ${formatDateShort(tomorrowDate)}</div>`;
+    tomorrowSchedule.forEach(ex => {
+      tmHtml += `<div class="tomorrow-item">${ex.name} <span style="color:var(--text-light);font-size:11px;">${exDoseText(ex)}</span></div>`;
+    });
+    tmHtml += `<div class="tomorrow-meta">${tomorrowSchedule.length} exercises &middot; ~${formatTimeMinSec(tomorrowTime)}</div>`;
+    tmHtml += `</div>`;
+    tomorrowEl.innerHTML = tmHtml;
+  } else {
+    tomorrowEl.innerHTML = '';
+  }
 }
 
 function exerciseCardHTML(ex, dateString) {
@@ -1323,13 +1436,57 @@ function openSwapModal(exerciseId, dateString) {
 // RENDER: WEEK
 // ============================================================
 function renderWeek() {
-  const monday = getMonday(today());
+  const monday = displayedWeekMonday;
   const plan = loadWeekPlan(monday);
+  const isCurrentWeek = monday === getMonday(today());
+
+  // Update header
+  const title = document.getElementById('header-title');
+  const sub = document.getElementById('header-subtitle');
+  if (isCurrentWeek) {
+    title.textContent = 'This Week';
+    sub.textContent = '';
+  } else {
+    const monDate = new Date(monday + 'T12:00:00');
+    title.textContent = 'Week View';
+    sub.textContent = monDate.toLocaleDateString('en', { month: 'short', day: 'numeric' }) + ' – ' +
+      new Date(addDays(monday, 6) + 'T12:00:00').toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  // Week navigation arrows
+  const weekNav = document.getElementById('week-nav');
+  const monLabel = new Date(monday + 'T12:00:00');
+  const sunLabel = new Date(addDays(monday, 6) + 'T12:00:00');
+  weekNav.innerHTML = `
+    <button class="week-nav-btn" id="week-prev">&lsaquo;</button>
+    <div class="week-nav-label">
+      ${monLabel.toLocaleDateString('en', { month: 'short', day: 'numeric' })} – ${sunLabel.toLocaleDateString('en', { month: 'short', day: 'numeric' })}
+      ${!isCurrentWeek ? '<br><button class="week-today-btn" id="week-go-today">Back to this week</button>' : ''}
+    </div>
+    <button class="week-nav-btn" id="week-next">&rsaquo;</button>`;
+
+  document.getElementById('week-prev').addEventListener('click', () => {
+    displayedWeekMonday = addDays(displayedWeekMonday, -7);
+    selectedWeekDate = displayedWeekMonday;
+    renderWeek();
+  });
+  document.getElementById('week-next').addEventListener('click', () => {
+    displayedWeekMonday = addDays(displayedWeekMonday, 7);
+    selectedWeekDate = displayedWeekMonday;
+    renderWeek();
+  });
+  const goTodayBtn = document.getElementById('week-go-today');
+  if (goTodayBtn) {
+    goTodayBtn.addEventListener('click', () => {
+      displayedWeekMonday = getMonday(today());
+      selectedWeekDate = today();
+      renderWeek();
+    });
+  }
 
   // Plan bar
   const planBar = document.getElementById('plan-bar');
   if (plan) {
-    // Count unique exercises across the week
     const allIds = new Set();
     plan.specialistIds.forEach(id => allIds.add(id));
     plan.days.forEach(dayIds => dayIds.forEach(id => allIds.add(id)));
@@ -1352,7 +1509,7 @@ function renderWeek() {
   document.getElementById('regen-plan-btn').addEventListener('click', () => {
     generateWeeklyPlan(monday);
     renderWeek();
-    if (currentPage === 'today') renderToday();
+    if (monday === getMonday(today())) renderToday();
   });
 
   // Week grid
@@ -1388,6 +1545,31 @@ function renderWeek() {
     });
   });
 
+  // Weekly summary
+  const summaryEl = document.getElementById('week-summary');
+  let weekTotalEx = 0, weekDoneEx = 0, weekTotalTime = 0;
+  const groupsCovered = new Set();
+  for (let i = 0; i < 7; i++) {
+    const d = addDays(monday, i);
+    const daySchedule = getScheduleForDate(d);
+    const { total, done } = getDayStats(d);
+    weekTotalEx += total;
+    weekDoneEx += done;
+    weekTotalTime += estimateDaySeconds(daySchedule);
+    daySchedule.forEach(ex => {
+      const g = exGroup(ex);
+      if (g) groupsCovered.add(g);
+    });
+  }
+  const weekPct = weekTotalEx > 0 ? Math.round(weekDoneEx / weekTotalEx * 100) : 0;
+  summaryEl.innerHTML = `
+    <div class="week-summary">
+      <div class="week-summary-title">Weekly Summary</div>
+      <div class="week-summary-row"><span>Completed</span><strong>${weekDoneEx} / ${weekTotalEx} (${weekPct}%)</strong></div>
+      <div class="week-summary-row"><span>Est. total time</span><strong>${Math.round(weekTotalTime / 60)} min</strong></div>
+      <div class="week-summary-row"><span>Groups covered</span><strong>${groupsCovered.size > 0 ? [...groupsCovered].map(g => g.replace('Group ', '')).join(', ') : '—'}</strong></div>
+    </div>`;
+
   // Day detail
   const detail = document.getElementById('week-day-detail');
   const scheduled = getScheduleForDate(selectedWeekDate);
@@ -1399,7 +1581,6 @@ function renderWeek() {
   if (scheduled.length === 0) {
     detailHTML += `<p style="color:var(--text-light);font-size:14px;padding:12px 0;">Rest day or no exercises assigned.</p>`;
   } else {
-    // Show groups covered
     const groups = new Set(scheduled.map(ex => exGroup(ex)).filter(Boolean));
     if (groups.size > 0) {
       detailHTML += `<div class="coverage-note">Groups: ${[...groups].map(g => g.replace('Group ', '')).join(' &middot; ')}</div>`;
@@ -1615,8 +1796,9 @@ function renderStats() {
 // ============================================================
 const RING_CIRCUMFERENCE = 2 * Math.PI * 52; // matches r=52 in SVG
 const REST_BETWEEN_SETS = 10; // seconds
+const SECONDS_PER_REP = 3; // auto-count pace for reps
 
-let playerState = null; // { exerciseId, dateString, type, amount, sets, currentSet, currentCount, running, paused, interval, phase }
+let playerState = null;
 
 function openPlayer(exerciseId, dateString) {
   const exercises = loadExercises();
@@ -1640,27 +1822,23 @@ function openPlayer(exerciseId, dateString) {
     running: false,
     paused: false,
     interval: null,
-    phase: 'ready' // ready, active, rest, done
+    phase: 'ready'
   };
 
-  // Set up UI
   document.getElementById('player-name').textContent = ex.name;
   document.getElementById('player-note').textContent = note || '';
-  updatePlayerDisplay();
+  document.getElementById('player-tap-zone').style.display = 'none';
 
-  document.getElementById('player-overlay').classList.add('active');
-
-  // Set up tap zone for reps
-  const tapZone = document.getElementById('player-tap-zone');
   const tapHint = document.getElementById('player-tap-hint');
   if (!isTimer) {
-    tapZone.style.display = 'block';
     tapHint.style.display = 'block';
-    tapHint.textContent = 'Tap circle to count reps';
+    tapHint.textContent = 'Follow along \u2014 ' + SECONDS_PER_REP + 's per rep';
   } else {
-    tapZone.style.display = 'none';
     tapHint.style.display = 'none';
   }
+
+  updatePlayerDisplay();
+  document.getElementById('player-overlay').classList.add('active');
 }
 
 function updatePlayerDisplay() {
@@ -1674,16 +1852,8 @@ function updatePlayerDisplay() {
   const mainBtn = document.getElementById('player-main-btn');
   const tapHint = document.getElementById('player-tap-hint');
 
-  // Set label
   if (phase === 'done') {
     setLabel.textContent = 'All done!';
-  } else if (phase === 'rest') {
-    setLabel.textContent = `Rest before set ${currentSet} of ${sets}`;
-  } else {
-    setLabel.textContent = sets > 1 ? `Set ${currentSet} of ${sets}` : '';
-  }
-
-  if (phase === 'done') {
     bigNum.textContent = '\u2713';
     bigNum.style.color = 'var(--success)';
     subLabel.textContent = 'Exercise complete';
@@ -1700,7 +1870,7 @@ function updatePlayerDisplay() {
   mainBtn.style.background = '';
 
   if (phase === 'rest') {
-    // Rest countdown
+    setLabel.textContent = `Rest before set ${currentSet} of ${sets}`;
     bigNum.textContent = currentCount;
     subLabel.textContent = 'rest';
     const progress = 1 - (currentCount / REST_BETWEEN_SETS);
@@ -1710,40 +1880,30 @@ function updatePlayerDisplay() {
     return;
   }
 
+  setLabel.textContent = sets > 1 ? `Set ${currentSet} of ${sets}` : '';
+
   if (type === 'timer') {
-    // Show countdown
     const mins = Math.floor(currentCount / 60);
     const secs = currentCount % 60;
     bigNum.textContent = mins > 0 ? `${mins}:${String(secs).padStart(2, '0')}` : secs;
     subLabel.textContent = mins > 0 ? '' : 'seconds';
-
-    // Progress ring: fills as time counts down
     const progress = 1 - (currentCount / amount);
     ring.style.strokeDashoffset = (progress * RING_CIRCUMFERENCE).toFixed(1);
-
-    if (playerState.phase === 'ready') {
-      mainBtn.innerHTML = '&#9654;';
-    } else {
-      mainBtn.innerHTML = playerState.paused ? '&#9654;' : '&#10074;&#10074;';
-    }
   } else {
-    // Reps mode
     bigNum.textContent = `${currentCount}`;
     subLabel.textContent = `of ${amount} reps`;
-
     const progress = currentCount / amount;
     ring.style.strokeDashoffset = ((1 - progress) * RING_CIRCUMFERENCE).toFixed(1);
-
-    if (playerState.phase === 'ready') {
-      mainBtn.innerHTML = '&#9654;';
-      if (tapHint) tapHint.textContent = 'Tap circle to count reps';
-    } else {
-      mainBtn.innerHTML = playerState.paused ? '&#9654;' : '&#10074;&#10074;';
-      if (tapHint) {
-        tapHint.style.display = 'block';
-        tapHint.textContent = 'Tap circle to count reps';
-      }
+    if (tapHint && phase === 'active') {
+      tapHint.style.display = 'block';
+      tapHint.textContent = 'Follow along \u2014 ' + SECONDS_PER_REP + 's per rep';
     }
+  }
+
+  if (phase === 'ready') {
+    mainBtn.innerHTML = '&#9654;';
+  } else {
+    mainBtn.innerHTML = playerState.paused ? '&#9654;' : '&#10074;&#10074;';
   }
 }
 
@@ -1755,58 +1915,45 @@ function startPlayer() {
     return;
   }
 
+  if (playerState.running) {
+    // Pause
+    playerState.paused = true;
+    playerState.running = false;
+    clearInterval(playerState.interval);
+    playerState.interval = null;
+    updatePlayerDisplay();
+    return;
+  }
+
+  // Start or resume
+  playerState.running = true;
+  playerState.paused = false;
+  if (playerState.phase === 'ready') playerState.phase = 'active';
+
   if (playerState.type === 'timer' || playerState.phase === 'rest') {
-    // Toggle pause/resume for timer and rest
-    if (playerState.running) {
-      // Pause
-      playerState.paused = true;
-      playerState.running = false;
-      clearInterval(playerState.interval);
-      playerState.interval = null;
-    } else {
-      // Start or resume
-      playerState.running = true;
-      playerState.paused = false;
-      if (playerState.phase === 'ready') playerState.phase = 'active';
-
-      playerState.interval = setInterval(() => {
-        playerState.currentCount--;
-        if (playerState.currentCount <= 0) {
-          clearInterval(playerState.interval);
-          playerState.interval = null;
-          playerState.running = false;
-          onSetComplete();
-        }
-        updatePlayerDisplay();
-      }, 1000);
-    }
+    // Count down every second
+    playerState.interval = setInterval(() => {
+      playerState.currentCount--;
+      if (playerState.currentCount <= 0) {
+        clearInterval(playerState.interval);
+        playerState.interval = null;
+        playerState.running = false;
+        onSetComplete();
+      }
+      updatePlayerDisplay();
+    }, 1000);
   } else {
-    // Reps mode - main button toggles pause of the session
-    if (playerState.phase === 'ready') {
-      playerState.phase = 'active';
-      playerState.running = true;
-    } else if (playerState.running) {
-      playerState.paused = true;
-      playerState.running = false;
-    } else {
-      playerState.paused = false;
-      playerState.running = true;
-    }
-  }
-  updatePlayerDisplay();
-}
-
-function countRep() {
-  if (!playerState || playerState.type !== 'reps') return;
-  if (playerState.phase === 'ready') {
-    playerState.phase = 'active';
-    playerState.running = true;
-  }
-  if (playerState.phase !== 'active' || playerState.paused) return;
-
-  playerState.currentCount++;
-  if (playerState.currentCount >= playerState.amount) {
-    onSetComplete();
+    // Reps: auto-count every SECONDS_PER_REP
+    playerState.interval = setInterval(() => {
+      playerState.currentCount++;
+      updatePlayerDisplay();
+      if (playerState.currentCount >= playerState.amount) {
+        clearInterval(playerState.interval);
+        playerState.interval = null;
+        playerState.running = false;
+        onSetComplete();
+      }
+    }, SECONDS_PER_REP * 1000);
   }
   updatePlayerDisplay();
 }
@@ -1818,7 +1965,6 @@ function onSetComplete() {
   playerState.running = false;
 
   if (playerState.currentSet < playerState.sets) {
-    // Start rest period before next set
     playerState.currentSet++;
     playerState.currentCount = REST_BETWEEN_SETS;
     playerState.phase = 'rest';
@@ -1831,26 +1977,17 @@ function onSetComplete() {
         clearInterval(playerState.interval);
         playerState.interval = null;
         playerState.running = false;
-        // Start next set
         playerState.phase = 'active';
         playerState.currentCount = playerState.type === 'timer' ? playerState.amount : 0;
         updatePlayerDisplay();
-
-        // Auto-start timer for timer exercises
-        if (playerState.type === 'timer') {
-          startPlayer();
-        } else {
-          playerState.running = true;
-        }
+        // Auto-start next set
+        startPlayer();
       }
       updatePlayerDisplay();
     }, 1000);
   } else {
-    // All sets done - mark exercise complete
     playerState.phase = 'done';
     updatePlayerDisplay();
-
-    // Auto-mark as done
     if (!isExerciseDone(playerState.dateString, playerState.exerciseId)) {
       toggleExercise(playerState.dateString, playerState.exerciseId);
     }
@@ -1866,7 +2003,6 @@ function closePlayer() {
   renderCurrentPage();
 }
 
-// Wire up player controls
 document.getElementById('player-main-btn').addEventListener('click', (e) => {
   e.stopPropagation();
   startPlayer();
@@ -1878,10 +2014,6 @@ document.getElementById('player-stop-btn').addEventListener('click', (e) => {
 document.getElementById('player-close-btn').addEventListener('click', (e) => {
   e.stopPropagation();
   closePlayer();
-});
-document.getElementById('player-tap-zone').addEventListener('click', (e) => {
-  e.stopPropagation();
-  countRep();
 });
 
 // ============================================================
