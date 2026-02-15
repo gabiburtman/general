@@ -345,6 +345,290 @@ body {
 .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
 .empty-state p { font-size: 15px; line-height: 1.5; }
 
+/* ---- PLAN CONTROLS ---- */
+.plan-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.plan-bar .plan-info {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-light);
+}
+.plan-bar .plan-info strong {
+  color: var(--text);
+  font-size: 14px;
+}
+.btn-plan {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  white-space: nowrap;
+}
+.btn-plan:active { opacity: 0.8; }
+.day-col .day-time {
+  font-size: 10px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+.time-badge {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 4px;
+}
+.coverage-note {
+  font-size: 12px;
+  color: var(--text-light);
+  padding: 8px 0;
+  line-height: 1.5;
+}
+
+/* ---- WEEK NAV ---- */
+.week-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.week-nav-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.week-nav-btn:active { background: var(--primary-light); }
+.week-nav-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.week-nav-label .week-nav-sub {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-light);
+}
+.week-today-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* ---- WEEK SUMMARY ---- */
+.week-summary {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.week-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border);
+}
+.week-summary-row:last-child { border-bottom: none; }
+.week-summary-row strong { color: var(--text); }
+.week-summary-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ---- TOMORROW PREVIEW ---- */
+.tomorrow-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary);
+}
+.tomorrow-card .tomorrow-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.tomorrow-card .tomorrow-item {
+  font-size: 13px;
+  color: var(--text-light);
+  padding: 3px 0;
+}
+.tomorrow-card .tomorrow-meta {
+  font-size: 12px;
+  color: var(--primary-dark);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* ---- EXERCISE PLAYER ---- */
+.player-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 300;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+}
+.player-overlay.active { display: flex; }
+.player-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+}
+.player-name {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+  padding: 0 48px;
+}
+.player-set-label {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+.player-ring-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin-bottom: 32px;
+}
+.player-ring-wrap svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.player-ring-bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 8;
+}
+.player-ring-fill {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s linear;
+}
+.player-ring-fill.done-ring {
+  stroke: var(--success);
+}
+.player-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.player-big-num {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+}
+.player-sub-label {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.player-controls {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+.player-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.player-btn:active { transform: scale(0.92); }
+.player-btn-primary {
+  background: var(--primary);
+  color: white;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+}
+.player-btn-secondary {
+  background: var(--border);
+  color: var(--text);
+}
+.player-tap-zone {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+.player-tap-hint {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 8px;
+}
+.player-note {
+  font-size: 13px;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 16px;
+  max-width: 280px;
+  line-height: 1.4;
+}
+.player-rest-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
 /* ---- UTILITIES ---- */
 .fade-in { animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -368,11 +652,15 @@ body {
     </div>
   </div>
   <div id="today-list"></div>
+  <div id="today-tomorrow"></div>
 </div>
 
 <!-- ===== WEEK ===== -->
 <div class="page" id="page-week">
+  <div class="plan-bar" id="plan-bar"></div>
+  <div class="week-nav" id="week-nav"></div>
   <div class="week-grid" id="week-grid"></div>
+  <div id="week-summary"></div>
   <div class="week-day-detail" id="week-day-detail"></div>
 </div>
 
@@ -407,6 +695,31 @@ body {
     <h3 id="swap-title">Swap exercise</h3>
     <div id="swap-list"></div>
   </div>
+</div>
+
+<!-- ===== EXERCISE PLAYER ===== -->
+<div class="player-overlay" id="player-overlay">
+  <button class="player-close" id="player-close-btn">&times;</button>
+  <div class="player-name" id="player-name"></div>
+  <div class="player-set-label" id="player-set-label"></div>
+  <div class="player-ring-wrap">
+    <svg viewBox="0 0 120 120">
+      <circle class="player-ring-bg" cx="60" cy="60" r="52"/>
+      <circle class="player-ring-fill" id="player-ring" cx="60" cy="60" r="52"
+        stroke-dasharray="326.73" stroke-dashoffset="0"/>
+    </svg>
+    <div class="player-center">
+      <div class="player-big-num" id="player-big-num">0</div>
+      <div class="player-sub-label" id="player-sub-label"></div>
+      <div class="player-tap-zone" id="player-tap-zone" style="display:none;"></div>
+    </div>
+  </div>
+  <div id="player-tap-hint" class="player-tap-hint" style="display:none;"></div>
+  <div class="player-controls" id="player-controls">
+    <button class="player-btn player-btn-secondary" id="player-stop-btn">&#9632;</button>
+    <button class="player-btn player-btn-primary" id="player-main-btn">&#9654;</button>
+  </div>
+  <div class="player-note" id="player-note"></div>
 </div>
 
 <!-- ===== BOTTOM NAV ===== -->
@@ -476,6 +789,27 @@ async function seedFromJSON() {
 }
 
 // ============================================================
+// WEEKLY PLAN - Smart 15-minute daily plans
+// ============================================================
+const PLAN_KEY = '3rdtri_weekplan';
+const DAILY_BUDGET_SECONDS = 900; // 15 minutes
+const TRANSITION_SECONDS = 10;
+
+function loadWeekPlan(mondayDate) {
+  const raw = localStorage.getItem(PLAN_KEY);
+  if (!raw) return null;
+  const plans = JSON.parse(raw);
+  return plans[mondayDate] || null;
+}
+
+function saveWeekPlan(mondayDate, plan) {
+  const raw = localStorage.getItem(PLAN_KEY);
+  const plans = raw ? JSON.parse(raw) : {};
+  plans[mondayDate] = plan;
+  localStorage.setItem(PLAN_KEY, JSON.stringify(plans));
+}
+
+// ============================================================
 // ACCESSORS - adapt user's rich schema to UI needs
 // ============================================================
 function exFreq(ex) {
@@ -522,7 +856,7 @@ function exDoseText(ex) {
   const amt = exAmount(ex);
   const sets = exSets(ex);
   let base = '';
-  if (t === 'timed' || t === 'timed_hold') base = amt + 's';
+  if (t === 'timer' || t === 'timed' || t === 'timed_hold') base = amt + 's';
   else base = amt + ' reps';
   if (sets > 1) base += ' x ' + sets + ' sets';
   return base;
@@ -579,12 +913,25 @@ function assignDays(daysPerWeek) {
 function getScheduleForDate(dateString) {
   const exercises = loadExercises();
   const monday = getMonday(dateString);
-  const daysSinceMonday = Math.round((new Date(dateString) - new Date(monday)) / 86400000);
-  const dayIndex = daysSinceMonday;
+  const dayIndex = Math.round((new Date(dateString) - new Date(monday)) / 86400000);
 
   const swaps = loadSwaps();
   const dateSwaps = swaps[dateString] || {};
 
+  // Check for a generated weekly plan
+  const plan = loadWeekPlan(monday);
+  if (plan) {
+    const dayIds = [...plan.specialistIds, ...(plan.days[dayIndex] || [])];
+    return dayIds.map(id => {
+      if (dateSwaps[id]) {
+        const swapped = exercises.find(e => e.id === dateSwaps[id]);
+        if (swapped) return { ...swapped, _swappedFrom: id };
+      }
+      return exercises.find(e => e.id === id);
+    }).filter(Boolean);
+  }
+
+  // Fallback: old deterministic schedule
   return exercises.filter(ex => {
     const dpw = freqToDaysPerWeek(exFreq(ex));
     const days = assignDays(dpw);
@@ -596,6 +943,192 @@ function getScheduleForDate(dateString) {
     }
     return ex;
   });
+}
+
+// ============================================================
+// DURATION ESTIMATION
+// ============================================================
+function estimateDuration(ex) {
+  const type = exType(ex);
+  const amount = exAmount(ex);
+  const sets = exSets(ex);
+  if (type === 'timer' || type === 'timed' || type === 'timed_hold') {
+    return amount * sets;
+  }
+  // reps: ~3 seconds per rep
+  return amount * sets * 3;
+}
+
+function estimateDaySeconds(exerciseList) {
+  if (!exerciseList || exerciseList.length === 0) return 0;
+  return exerciseList.reduce((sum, ex) => sum + estimateDuration(ex) + TRANSITION_SECONDS, 0);
+}
+
+function formatTimeMinSec(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.round(seconds % 60);
+  if (mins === 0) return secs + 's';
+  if (secs === 0) return mins + ' min';
+  return mins + ':' + String(secs).padStart(2, '0');
+}
+
+// ============================================================
+// WEEKLY PLAN GENERATOR
+// ============================================================
+function generateWeeklyPlan(mondayDate) {
+  const exercises = loadExercises();
+  if (exercises.length === 0) return null;
+
+  // Calculate durations (exercise time + transition)
+  const exDur = {};
+  exercises.forEach(ex => {
+    exDur[ex.id] = estimateDuration(ex) + TRANSITION_SECONDS;
+  });
+
+  // Classify: daily specialists vs everything else
+  const dailySpecialists = exercises.filter(ex => ex.specialist && exFreq(ex) === 'daily');
+  const nonSpecialists = exercises.filter(ex => !(ex.specialist && exFreq(ex) === 'daily'));
+
+  const specialistTime = dailySpecialists.reduce((sum, ex) => sum + exDur[ex.id], 0);
+  const dailyBudget = DAILY_BUDGET_SECONDS - specialistTime;
+
+  // Determine max and target appearances per week
+  const maxApps = {};
+  const targetApps = {};
+  nonSpecialists.forEach(ex => {
+    const freq = freqToDaysPerWeek(exFreq(ex));
+    maxApps[ex.id] = freq;
+    const priority = exPriority(ex);
+    if (priority === 'high') targetApps[ex.id] = Math.min(freq, 5);
+    else if (priority === 'medium') targetApps[ex.id] = Math.min(freq, 3);
+    else targetApps[ex.id] = 1;
+    targetApps[ex.id] = Math.max(1, targetApps[ex.id]);
+  });
+
+  // Initialize plan
+  const weekPlan = Array.from({length: 7}, () => []);
+  const dayTimeUsed = Array(7).fill(0);
+  const assigned = {};
+  nonSpecialists.forEach(ex => assigned[ex.id] = new Set());
+
+  // Find the best day for an exercise
+  function findBestDay(ex, excludeDays) {
+    if (assigned[ex.id].size >= maxApps[ex.id]) return -1;
+    let bestDay = -1;
+    let bestScore = -Infinity;
+
+    for (let day = 0; day < 7; day++) {
+      if (assigned[ex.id].has(day)) continue;
+      if (excludeDays && excludeDays.has(day)) continue;
+      if (dayTimeUsed[day] + exDur[ex.id] > dailyBudget) continue;
+
+      let score = 0;
+      // Prefer days with more remaining time
+      score += (dailyBudget - dayTimeUsed[day]) / Math.max(dailyBudget, 1) * 10;
+
+      // Penalize days where this group is already represented
+      const group = exGroup(ex);
+      if (group) {
+        const groupCount = weekPlan[day].filter(e => exGroup(e) === group).length;
+        score -= groupCount * 15;
+      }
+
+      // Prefer spreading across the week
+      for (const d of assigned[ex.id]) {
+        const gap = Math.abs(day - d);
+        if (gap <= 1) score -= 8;
+        else if (gap === 2) score -= 3;
+      }
+
+      // Small random factor
+      score += Math.random() * 2;
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestDay = day;
+      }
+    }
+    return bestDay;
+  }
+
+  function assignToDay(ex, day) {
+    weekPlan[day].push(ex);
+    dayTimeUsed[day] += exDur[ex.id];
+    assigned[ex.id].add(day);
+  }
+
+  // Priority ordering
+  const priorityOrder = {high: 0, medium: 1, low: 2};
+
+  // Phase 1: Guarantee every exercise appears at least once
+  const sorted = [...nonSpecialists].sort((a, b) => {
+    const pa = priorityOrder[exPriority(a)] || 1;
+    const pb = priorityOrder[exPriority(b)] || 1;
+    if (pa !== pb) return pa - pb;
+    // Shorter exercises first within same priority (easier to fit)
+    return exDur[a.id] - exDur[b.id];
+  });
+
+  for (const ex of sorted) {
+    if (assigned[ex.id].size === 0) {
+      const day = findBestDay(ex);
+      if (day !== -1) assignToDay(ex, day);
+    }
+  }
+
+  // Phase 2: Fill toward target appearances
+  for (let pass = 0; pass < 6; pass++) {
+    const pool = [...nonSpecialists]
+      .filter(ex => assigned[ex.id].size < targetApps[ex.id])
+      .sort((a, b) => {
+        // Exercises furthest from target first
+        const aRatio = assigned[a.id].size / targetApps[a.id];
+        const bRatio = assigned[b.id].size / targetApps[b.id];
+        if (Math.abs(aRatio - bRatio) > 0.1) return aRatio - bRatio;
+        // Then higher priority first
+        return (priorityOrder[exPriority(a)] || 1) - (priorityOrder[exPriority(b)] || 1);
+      });
+
+    let placed = false;
+    for (const ex of pool) {
+      if (assigned[ex.id].size >= targetApps[ex.id]) continue;
+      const day = findBestDay(ex);
+      if (day !== -1) {
+        assignToDay(ex, day);
+        placed = true;
+      }
+    }
+    if (!placed) break;
+  }
+
+  // Phase 3: Fill remaining time on underfilled days with high-priority extras
+  for (let day = 0; day < 7; day++) {
+    if (dayTimeUsed[day] < dailyBudget * 0.6) {
+      const candidates = nonSpecialists
+        .filter(ex =>
+          !assigned[ex.id].has(day) &&
+          assigned[ex.id].size < maxApps[ex.id] &&
+          dayTimeUsed[day] + exDur[ex.id] <= dailyBudget
+        )
+        .sort((a, b) => (priorityOrder[exPriority(a)] || 1) - (priorityOrder[exPriority(b)] || 1));
+
+      for (const ex of candidates) {
+        if (dayTimeUsed[day] + exDur[ex.id] > dailyBudget) continue;
+        assignToDay(ex, day);
+      }
+    }
+  }
+
+  // Build and save plan
+  const plan = {
+    mondayDate,
+    generated: new Date().toISOString(),
+    specialistIds: dailySpecialists.map(ex => ex.id),
+    days: weekPlan.map(dayExs => dayExs.map(ex => ex.id))
+  };
+
+  saveWeekPlan(mondayDate, plan);
+  return plan;
 }
 
 // ============================================================
@@ -626,6 +1159,7 @@ function getDayStats(dateString) {
 let currentPage = 'today';
 let selectedWeekDate = today();
 let expandedCard = null;
+let displayedWeekMonday = getMonday(today());
 
 // ============================================================
 // NAVIGATION
@@ -675,9 +1209,10 @@ function renderToday() {
   const dateString = today();
   const scheduled = getScheduleForDate(dateString);
   const { total, done } = getDayStats(dateString);
+  const estTime = estimateDaySeconds(scheduled);
 
   document.getElementById('today-done-count').textContent = done;
-  document.getElementById('today-done-label').textContent = `exercise${done !== 1 ? 's' : ''} done today`;
+  document.getElementById('today-done-label').textContent = `exercise${done !== 1 ? 's' : ''} done today \u00B7 ~${formatTimeMinSec(estTime)}`;
   document.getElementById('today-progress-fill').style.width = total ? (done / total * 100) + '%' : '0%';
   document.getElementById('today-progress-text').textContent = `${done} / ${total}`;
 
@@ -705,6 +1240,24 @@ function renderToday() {
   }
   list.innerHTML = html;
   attachCardListeners(list, dateString);
+
+  // Tomorrow preview
+  const tomorrowEl = document.getElementById('today-tomorrow');
+  const tomorrowDate = addDays(dateString, 1);
+  const tomorrowSchedule = getScheduleForDate(tomorrowDate);
+  if (tomorrowSchedule.length > 0) {
+    const tomorrowTime = estimateDaySeconds(tomorrowSchedule);
+    let tmHtml = `<div class="tomorrow-card">
+      <div class="tomorrow-title">Tomorrow &mdash; ${formatDateShort(tomorrowDate)}</div>`;
+    tomorrowSchedule.forEach(ex => {
+      tmHtml += `<div class="tomorrow-item">${ex.name} <span style="color:var(--text-light);font-size:11px;">${exDoseText(ex)}</span></div>`;
+    });
+    tmHtml += `<div class="tomorrow-meta">${tomorrowSchedule.length} exercises &middot; ~${formatTimeMinSec(tomorrowTime)}</div>`;
+    tmHtml += `</div>`;
+    tomorrowEl.innerHTML = tmHtml;
+  } else {
+    tomorrowEl.innerHTML = '';
+  }
 }
 
 function exerciseCardHTML(ex, dateString) {
@@ -756,6 +1309,7 @@ function exerciseCardHTML(ex, dateString) {
         ${detailHTML || '<p>No instructions yet.</p>'}
       </div>
       <div class="card-actions">
+        <button class="btn-start" data-start="${ex.id}" style="background:var(--primary);color:white;">Start</button>
         ${hasSwap ? `<button class="btn-swap" data-swap="${ex.id}">Swap</button>` : ''}
       </div>
     </div>`;
@@ -776,6 +1330,14 @@ function attachCardListeners(container, dateString) {
       expandedCard = expandedCard === id ? null : id;
       renderCurrentPage();
     });
+
+    const startBtn = card.querySelector('.btn-start');
+    if (startBtn) {
+      startBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openPlayer(startBtn.dataset.start, dateString);
+      });
+    }
 
     const swapBtn = card.querySelector('.btn-swap');
     if (swapBtn) {
@@ -874,7 +1436,83 @@ function openSwapModal(exerciseId, dateString) {
 // RENDER: WEEK
 // ============================================================
 function renderWeek() {
-  const monday = getMonday(today());
+  const monday = displayedWeekMonday;
+  const plan = loadWeekPlan(monday);
+  const isCurrentWeek = monday === getMonday(today());
+
+  // Update header
+  const title = document.getElementById('header-title');
+  const sub = document.getElementById('header-subtitle');
+  if (isCurrentWeek) {
+    title.textContent = 'This Week';
+    sub.textContent = '';
+  } else {
+    const monDate = new Date(monday + 'T12:00:00');
+    title.textContent = 'Week View';
+    sub.textContent = monDate.toLocaleDateString('en', { month: 'short', day: 'numeric' }) + ' – ' +
+      new Date(addDays(monday, 6) + 'T12:00:00').toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  // Week navigation arrows
+  const weekNav = document.getElementById('week-nav');
+  const monLabel = new Date(monday + 'T12:00:00');
+  const sunLabel = new Date(addDays(monday, 6) + 'T12:00:00');
+  weekNav.innerHTML = `
+    <button class="week-nav-btn" id="week-prev">&lsaquo;</button>
+    <div class="week-nav-label">
+      ${monLabel.toLocaleDateString('en', { month: 'short', day: 'numeric' })} – ${sunLabel.toLocaleDateString('en', { month: 'short', day: 'numeric' })}
+      ${!isCurrentWeek ? '<br><button class="week-today-btn" id="week-go-today">Back to this week</button>' : ''}
+    </div>
+    <button class="week-nav-btn" id="week-next">&rsaquo;</button>`;
+
+  document.getElementById('week-prev').addEventListener('click', () => {
+    displayedWeekMonday = addDays(displayedWeekMonday, -7);
+    selectedWeekDate = displayedWeekMonday;
+    renderWeek();
+  });
+  document.getElementById('week-next').addEventListener('click', () => {
+    displayedWeekMonday = addDays(displayedWeekMonday, 7);
+    selectedWeekDate = displayedWeekMonday;
+    renderWeek();
+  });
+  const goTodayBtn = document.getElementById('week-go-today');
+  if (goTodayBtn) {
+    goTodayBtn.addEventListener('click', () => {
+      displayedWeekMonday = getMonday(today());
+      selectedWeekDate = today();
+      renderWeek();
+    });
+  }
+
+  // Plan bar
+  const planBar = document.getElementById('plan-bar');
+  if (plan) {
+    const allIds = new Set();
+    plan.specialistIds.forEach(id => allIds.add(id));
+    plan.days.forEach(dayIds => dayIds.forEach(id => allIds.add(id)));
+    const totalExercises = loadExercises().length;
+    planBar.innerHTML = `
+      <div class="plan-info">
+        <strong>Weekly Plan Active</strong><br>
+        ${allIds.size}/${totalExercises} exercises covered &middot; 15 min/day
+      </div>
+      <button class="btn-plan" id="regen-plan-btn">Shuffle</button>`;
+  } else {
+    planBar.innerHTML = `
+      <div class="plan-info">
+        <strong>No plan yet</strong><br>
+        Generate a smart 15-min daily plan
+      </div>
+      <button class="btn-plan" id="regen-plan-btn">Generate</button>`;
+  }
+
+  document.getElementById('regen-plan-btn').addEventListener('click', () => {
+    generateWeeklyPlan(monday);
+    renderWeek();
+    if (monday === getMonday(today())) renderToday();
+  });
+
+  // Week grid
   const grid = document.getElementById('week-grid');
   let html = '';
 
@@ -884,7 +1522,10 @@ function renderWeek() {
     const isToday = d === today();
     const isFuture = d > today();
     const sel = d === selectedWeekDate;
+    const daySchedule = getScheduleForDate(d);
     const { total, done } = getDayStats(d);
+    const estTime = estimateDaySeconds(daySchedule);
+    const timeLabel = total > 0 ? Math.round(estTime / 60) + 'm' : '';
     const dots = total > 0 ? (done === total ? '&#10003;' : Array(Math.min(done, 5)).fill('&#9679;').join('')) : '';
 
     html += `
@@ -892,6 +1533,7 @@ function renderWeek() {
         <div class="day-label">${DAY_NAMES[dt.getDay()]}</div>
         <div class="day-num">${dt.getDate()}</div>
         <div class="day-dots">${dots || '&nbsp;'}</div>
+        <div class="day-time">${timeLabel}</div>
       </div>`;
   }
   grid.innerHTML = html;
@@ -903,14 +1545,46 @@ function renderWeek() {
     });
   });
 
+  // Weekly summary
+  const summaryEl = document.getElementById('week-summary');
+  let weekTotalEx = 0, weekDoneEx = 0, weekTotalTime = 0;
+  const groupsCovered = new Set();
+  for (let i = 0; i < 7; i++) {
+    const d = addDays(monday, i);
+    const daySchedule = getScheduleForDate(d);
+    const { total, done } = getDayStats(d);
+    weekTotalEx += total;
+    weekDoneEx += done;
+    weekTotalTime += estimateDaySeconds(daySchedule);
+    daySchedule.forEach(ex => {
+      const g = exGroup(ex);
+      if (g) groupsCovered.add(g);
+    });
+  }
+  const weekPct = weekTotalEx > 0 ? Math.round(weekDoneEx / weekTotalEx * 100) : 0;
+  summaryEl.innerHTML = `
+    <div class="week-summary">
+      <div class="week-summary-title">Weekly Summary</div>
+      <div class="week-summary-row"><span>Completed</span><strong>${weekDoneEx} / ${weekTotalEx} (${weekPct}%)</strong></div>
+      <div class="week-summary-row"><span>Est. total time</span><strong>${Math.round(weekTotalTime / 60)} min</strong></div>
+      <div class="week-summary-row"><span>Groups covered</span><strong>${groupsCovered.size > 0 ? [...groupsCovered].map(g => g.replace('Group ', '')).join(', ') : '—'}</strong></div>
+    </div>`;
+
+  // Day detail
   const detail = document.getElementById('week-day-detail');
   const scheduled = getScheduleForDate(selectedWeekDate);
   const { total, done } = getDayStats(selectedWeekDate);
+  const estTime = estimateDaySeconds(scheduled);
 
-  let detailHTML = `<div class="section-title">${formatDateShort(selectedWeekDate)} &mdash; ${done}/${total} done</div>`;
+  let detailHTML = `<div class="section-title">${formatDateShort(selectedWeekDate)} &mdash; ${done}/${total} done <span class="time-badge">~${formatTimeMinSec(estTime)}</span></div>`;
+
   if (scheduled.length === 0) {
     detailHTML += `<p style="color:var(--text-light);font-size:14px;padding:12px 0;">Rest day or no exercises assigned.</p>`;
   } else {
+    const groups = new Set(scheduled.map(ex => exGroup(ex)).filter(Boolean));
+    if (groups.size > 0) {
+      detailHTML += `<div class="coverage-note">Groups: ${[...groups].map(g => g.replace('Group ', '')).join(' &middot; ')}</div>`;
+    }
     scheduled.forEach(ex => {
       detailHTML += exerciseCardHTML(ex, selectedWeekDate);
     });
@@ -1118,6 +1792,231 @@ function renderStats() {
 }
 
 // ============================================================
+// EXERCISE PLAYER - timer countdown & rep counter
+// ============================================================
+const RING_CIRCUMFERENCE = 2 * Math.PI * 52; // matches r=52 in SVG
+const REST_BETWEEN_SETS = 10; // seconds
+const SECONDS_PER_REP = 3; // auto-count pace for reps
+
+let playerState = null;
+
+function openPlayer(exerciseId, dateString) {
+  const exercises = loadExercises();
+  const ex = exercises.find(e => e.id === exerciseId);
+  if (!ex) return;
+
+  const type = exType(ex);
+  const isTimer = (type === 'timer' || type === 'timed' || type === 'timed_hold');
+  const amount = exAmount(ex);
+  const sets = exSets(ex);
+  const note = exNote(ex);
+
+  playerState = {
+    exerciseId,
+    dateString,
+    type: isTimer ? 'timer' : 'reps',
+    amount,
+    sets,
+    currentSet: 1,
+    currentCount: isTimer ? amount : 0,
+    running: false,
+    paused: false,
+    interval: null,
+    phase: 'ready'
+  };
+
+  document.getElementById('player-name').textContent = ex.name;
+  document.getElementById('player-note').textContent = note || '';
+  document.getElementById('player-tap-zone').style.display = 'none';
+
+  const tapHint = document.getElementById('player-tap-hint');
+  if (!isTimer) {
+    tapHint.style.display = 'block';
+    tapHint.textContent = 'Follow along \u2014 ' + SECONDS_PER_REP + 's per rep';
+  } else {
+    tapHint.style.display = 'none';
+  }
+
+  updatePlayerDisplay();
+  document.getElementById('player-overlay').classList.add('active');
+}
+
+function updatePlayerDisplay() {
+  if (!playerState) return;
+  const { type, amount, sets, currentSet, currentCount, phase } = playerState;
+
+  const ring = document.getElementById('player-ring');
+  const bigNum = document.getElementById('player-big-num');
+  const subLabel = document.getElementById('player-sub-label');
+  const setLabel = document.getElementById('player-set-label');
+  const mainBtn = document.getElementById('player-main-btn');
+  const tapHint = document.getElementById('player-tap-hint');
+
+  if (phase === 'done') {
+    setLabel.textContent = 'All done!';
+    bigNum.textContent = '\u2713';
+    bigNum.style.color = 'var(--success)';
+    subLabel.textContent = 'Exercise complete';
+    ring.style.strokeDashoffset = '0';
+    ring.classList.add('done-ring');
+    mainBtn.innerHTML = '\u2713';
+    mainBtn.style.background = 'var(--success)';
+    if (tapHint) tapHint.style.display = 'none';
+    return;
+  }
+
+  bigNum.style.color = 'var(--text)';
+  ring.classList.remove('done-ring');
+  mainBtn.style.background = '';
+
+  if (phase === 'rest') {
+    setLabel.textContent = `Rest before set ${currentSet} of ${sets}`;
+    bigNum.textContent = currentCount;
+    subLabel.textContent = 'rest';
+    const progress = 1 - (currentCount / REST_BETWEEN_SETS);
+    ring.style.strokeDashoffset = (progress * RING_CIRCUMFERENCE).toFixed(1);
+    mainBtn.innerHTML = playerState.running ? '&#10074;&#10074;' : '&#9654;';
+    if (tapHint) tapHint.style.display = 'none';
+    return;
+  }
+
+  setLabel.textContent = sets > 1 ? `Set ${currentSet} of ${sets}` : '';
+
+  if (type === 'timer') {
+    const mins = Math.floor(currentCount / 60);
+    const secs = currentCount % 60;
+    bigNum.textContent = mins > 0 ? `${mins}:${String(secs).padStart(2, '0')}` : secs;
+    subLabel.textContent = mins > 0 ? '' : 'seconds';
+    const progress = 1 - (currentCount / amount);
+    ring.style.strokeDashoffset = (progress * RING_CIRCUMFERENCE).toFixed(1);
+  } else {
+    bigNum.textContent = `${currentCount}`;
+    subLabel.textContent = `of ${amount} reps`;
+    const progress = currentCount / amount;
+    ring.style.strokeDashoffset = ((1 - progress) * RING_CIRCUMFERENCE).toFixed(1);
+    if (tapHint && phase === 'active') {
+      tapHint.style.display = 'block';
+      tapHint.textContent = 'Follow along \u2014 ' + SECONDS_PER_REP + 's per rep';
+    }
+  }
+
+  if (phase === 'ready') {
+    mainBtn.innerHTML = '&#9654;';
+  } else {
+    mainBtn.innerHTML = playerState.paused ? '&#9654;' : '&#10074;&#10074;';
+  }
+}
+
+function startPlayer() {
+  if (!playerState) return;
+
+  if (playerState.phase === 'done') {
+    closePlayer();
+    return;
+  }
+
+  if (playerState.running) {
+    // Pause
+    playerState.paused = true;
+    playerState.running = false;
+    clearInterval(playerState.interval);
+    playerState.interval = null;
+    updatePlayerDisplay();
+    return;
+  }
+
+  // Start or resume
+  playerState.running = true;
+  playerState.paused = false;
+  if (playerState.phase === 'ready') playerState.phase = 'active';
+
+  if (playerState.type === 'timer' || playerState.phase === 'rest') {
+    // Count down every second
+    playerState.interval = setInterval(() => {
+      playerState.currentCount--;
+      if (playerState.currentCount <= 0) {
+        clearInterval(playerState.interval);
+        playerState.interval = null;
+        playerState.running = false;
+        onSetComplete();
+      }
+      updatePlayerDisplay();
+    }, 1000);
+  } else {
+    // Reps: auto-count every SECONDS_PER_REP
+    playerState.interval = setInterval(() => {
+      playerState.currentCount++;
+      updatePlayerDisplay();
+      if (playerState.currentCount >= playerState.amount) {
+        clearInterval(playerState.interval);
+        playerState.interval = null;
+        playerState.running = false;
+        onSetComplete();
+      }
+    }, SECONDS_PER_REP * 1000);
+  }
+  updatePlayerDisplay();
+}
+
+function onSetComplete() {
+  if (!playerState) return;
+  clearInterval(playerState.interval);
+  playerState.interval = null;
+  playerState.running = false;
+
+  if (playerState.currentSet < playerState.sets) {
+    playerState.currentSet++;
+    playerState.currentCount = REST_BETWEEN_SETS;
+    playerState.phase = 'rest';
+    playerState.running = true;
+    updatePlayerDisplay();
+
+    playerState.interval = setInterval(() => {
+      playerState.currentCount--;
+      if (playerState.currentCount <= 0) {
+        clearInterval(playerState.interval);
+        playerState.interval = null;
+        playerState.running = false;
+        playerState.phase = 'active';
+        playerState.currentCount = playerState.type === 'timer' ? playerState.amount : 0;
+        updatePlayerDisplay();
+        // Auto-start next set
+        startPlayer();
+      }
+      updatePlayerDisplay();
+    }, 1000);
+  } else {
+    playerState.phase = 'done';
+    updatePlayerDisplay();
+    if (!isExerciseDone(playerState.dateString, playerState.exerciseId)) {
+      toggleExercise(playerState.dateString, playerState.exerciseId);
+    }
+  }
+}
+
+function closePlayer() {
+  if (playerState && playerState.interval) {
+    clearInterval(playerState.interval);
+  }
+  playerState = null;
+  document.getElementById('player-overlay').classList.remove('active');
+  renderCurrentPage();
+}
+
+document.getElementById('player-main-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  startPlayer();
+});
+document.getElementById('player-stop-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  closePlayer();
+});
+document.getElementById('player-close-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  closePlayer();
+});
+
+// ============================================================
 // DOWNLOAD JSON
 // ============================================================
 document.getElementById('download-json-btn').addEventListener('click', () => {
@@ -1138,6 +2037,13 @@ document.getElementById('download-json-btn').addEventListener('click', () => {
 // ============================================================
 async function init() {
   await seedFromJSON();
+
+  // Auto-generate weekly plan if none exists for current week
+  const monday = getMonday(today());
+  if (!loadWeekPlan(monday)) {
+    generateWeeklyPlan(monday);
+  }
+
   updateHeader();
   renderCurrentPage();
 }
